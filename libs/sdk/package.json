@@ -1,0 +1,29 @@
+{
+  "name": "@gate/sdk",
+  "version": "0.0.1",
+  "description": "This is the SDK to build GATES applications.",
+  "author": {
+    "email": "bruno.duval@datatunning.com",
+    "name": "Bruno DUVAL"
+  },
+  "keywords": [
+    "portal",
+    "micro-frontend",
+    "typescript",
+    "angular",
+    "nx",
+    "primeng",
+    "storybook"
+  ],
+  "repository": "https://github.com/NineteenSevenFour/gates.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
