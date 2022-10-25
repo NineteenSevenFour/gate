@@ -33,7 +33,6 @@ jobs:
 
       - name: Prepare
         run: |
-          npm install -D nx@13 @nrwl/cli@13
           npm ci
 
       - name: Check
