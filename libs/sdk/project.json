@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/sdk",
+  "sourceRoot": "libs/sdk/src",
+  "prefix": "sdk",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/sdk"],
+      "options": {
+        "project": "libs/sdk/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/sdk/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/sdk/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sdk"],
+      "options": {
+        "jestConfig": "libs/sdk/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/sdk/src/**/*.ts", "libs/sdk/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:sdk", "type:util"]
+}

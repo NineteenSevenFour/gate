@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "adcon": "apps/adcon",
+    "adcon-e2e": "apps/adcon-e2e",
+    "portal": "apps/portal",
+    "portal-e2e": "apps/portal-e2e",
+    "sdk": "libs/sdk"
+  }
+}

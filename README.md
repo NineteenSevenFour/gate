@@ -35,7 +35,7 @@ npm install @nrwl/angular@13 -D
 Once the angular plugin is installed, we can generate the host application for our portal.
 
 ```bash
-nx g @nrwl/angular:host host --prefix=portal-host --dynamic --backendProject=http://localhost:9999/api --style=scss --strict
+nx g @nrwl/angular:host portal --prefix=portal --dynamic --backendProject=http://localhost:9999/api --style=scss --strict
 ```
 
 > INFO: `--dynamic` allows for runtime micro-frontend rather than static.
@@ -47,7 +47,7 @@ nx g @nrwl/angular:host host --prefix=portal-host --dynamic --backendProject=htt
 Alternatively, we can generate a workspace for a remote application instead of a Host. You can even have both Host and Remote within the same workspace.
 
 ```bash
-nx g @nrwl/angular:remote remote --host=host --port 8101 --prefix=portal-remote --backendProject=http://localhost:9999/api --strict --style=scss
+nx g @nrwl/angular:remote adcon --host=portal --port 8101 --prefix=adcon --backendProject=http://localhost:9999/api --strict --style=scss
 ```
 
 > TIP: run `nx g rm Myapp` to remove the application or library.
@@ -57,15 +57,20 @@ nx g @nrwl/angular:remote remote --host=host --port 8101 --prefix=portal-remote 
 Architecturing a micro-frontend is no more different than any other application. As such, we can create libraries that will be componsed of services, model, api (interfaces) and even components.
 
 ```bash
-nx g @nrwl/angular:lib MyLib --prefix=portal-mylib --importPath=@portal/mylib --buildable --strict
+nx g @nrwl/angular:lib sdk --prefix=sdk --importPath=@gate/sdk --publishable --strict
 ```
 
-#### **Create first service**
+#### **Create first services**
 
 To add a service within the newly created `MyLib` library. run the following commmand.
 
 ```bash
-nx g @nrwl/angular:service MyService --project=portal-mylib
+nx g @nrwl/angular:service core/navigation --project=sdk
+nx g @nrwl/angular:service core/registration --project=sdk
+nx g @nrwl/angular:service core/configuration --project=sdk
+nx g @nrwl/angular:service core/notification --project=sdk
+nx g @nrwl/angular:service core/authentication --project=sdk
+nx g @nrwl/angular:service i18n/translation --project=sdk
 ```
 
 Once the service has been added, ensure to add it to the `provider` section of your library module as well as to the `index` or `public-api` file to ensure your service is accessible when referenced by other applications or libraries.
@@ -100,12 +105,12 @@ While this guide is tailored for our needs, this is based on many good blog arti
 
 # Powered by
 
-``` 
+```
 Powered by
-  _   _ _            _                  ______               _____                      
- | \ | (_)          | |                |  ____|             / ____|                     
- |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __  
- | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \ 
+  _   _ _            _                  ______               _____
+ | \ | (_)          | |                |  ____|             / ____|
+ |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __
+ | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \
  | |\  | | | | |  __/ ||  __/  __/ | | | | | (_) | |_| | |  ____) |  __/\ V /  __/ | | |
  |_| \_|_|_| |_|\___|\__\___|\___|_| |_|_|  \___/ \__,_|_| |_____/ \___| \_/ \___|_| |_|
 ```
