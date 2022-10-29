@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/adcon",
   "sourceRoot": "apps/adcon/src",
   "prefix": "adcon",
   "targets": {
@@ -58,7 +58,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/angular:webpack-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "adcon:build:production"
@@ -91,9 +91,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/adcon"],
+      "outputs": ["{workspaceRoot}/coverage/apps/adcon"],
       "options": {
-        "jestConfig": "apps/adcon/jest.config.js",
+        "jestConfig": "apps/adcon/jest.config.ts",
         "passWithNoTests": true
       }
     }

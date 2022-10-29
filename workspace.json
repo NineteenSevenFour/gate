@@ -6,5 +6,6 @@
     "portal": "apps/portal",
     "portal-e2e": "apps/portal-e2e",
     "sdk": "libs/sdk"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

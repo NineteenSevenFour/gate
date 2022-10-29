@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'sdk',
+/* eslint-disable */
+export default {
+  displayName: 'adcon',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/sdk',
+  coverageDirectory: '../../coverage/apps/adcon',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

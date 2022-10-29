@@ -1,6 +1,6 @@
-import { setRemoteDefinitions } from '@nrwl/angular/mfe';
+import { setRemoteDefinitions } from '@nrwl/angular/mf';
 
-fetch('/assets/mfe.manifest.json')
+fetch('/assets/module-federation.config.json')
   .then((res) => res.json())
   .then((definitions) => setRemoteDefinitions(definitions))
   .then(() => import('./bootstrap').catch((err) => console.error(err)));

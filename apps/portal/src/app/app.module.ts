@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
-import { loadRemoteModule } from '@nrwl/angular/mfe';
+import { loadRemoteModule } from '@nrwl/angular/mf';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],

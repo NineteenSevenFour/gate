@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/portal",
   "sourceRoot": "apps/portal/src",
   "prefix": "portal",
   "targets": {
@@ -58,7 +58,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/angular:webpack-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "portal:build:production"
@@ -69,9 +69,28 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4200,
+        "port": 9200,
         "proxyConfig": "apps/portal/proxy.conf.json",
-        "publicHost": "http://localhost:4200"
+        "publicHost": "http://localhost:9200"
+      }
+    },
+    "serve_with_hmr_NOT-WORKING": {
+      "executor": "@nrwl/angular:module-federation-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "portal:build:production"
+        },
+        "development": {
+          "browserTarget": "portal:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 9200,
+        "publicHost": "http://localhost:9200",
+        "liveReload": true,
+        "hmr": true,
+        "devRemotes": ["adcon"]
       }
     },
     "extract-i18n": {
@@ -91,14 +110,14 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/portal"],
+      "outputs": ["{workspaceRoot}/coverage/apps/portal"],
       "options": {
-        "jestConfig": "apps/portal/jest.config.js",
+        "jestConfig": "apps/portal/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "serve-mfe": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "commands": ["nx serve adcon", "nx serve portal"]
       }
