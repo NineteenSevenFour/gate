@@ -1,12 +1,12 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/sdk",
   "sourceRoot": "libs/sdk/src",
   "prefix": "sdk",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/sdk"],
+      "outputs": ["{workspaceRoot}/dist/libs/sdk"],
       "options": {
         "project": "libs/sdk/ng-package.json"
       },
@@ -22,9 +22,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/sdk"],
+      "outputs": ["{workspaceRoot}/coverage/libs/sdk"],
       "options": {
-        "jestConfig": "libs/sdk/jest.config.js",
+        "jestConfig": "libs/sdk/jest.config.ts",
         "passWithNoTests": true
       }
     },
