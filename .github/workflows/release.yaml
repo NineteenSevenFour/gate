@@ -18,9 +18,9 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           fetch-depth: 0
-      - uses: ../actions/setup/action.yml
+      - uses: ./.github/actions/setup/action.yml
         with:
           ref: ${{ github.head.ref }}
           node-version: ${{ matrix.node-version }}
-      - uses: ../actions/build/action.yml
-      - uses: ../actions/publish-npm/action.yml
+      - uses: ./.github/actions/build/action.yml
+      - uses: ./.github/actions/publish-npm/action.yml
