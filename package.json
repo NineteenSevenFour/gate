@@ -1,7 +1,33 @@
 {
-  "name": "@ninettensevenfour/gates",
-  "version": ".0.1",
+  "name": "@nineteensevenfour/gate",
+  "version": "0.0.0-development",
   "license": "MIT",
+  "author": {
+    "email": "bruno.duval@datatunning.com",
+    "name": "Bruno DUVAL"
+  },
+  "keywords": [
+    "portal",
+    "micro-frontend",
+    "typescript",
+    "angular",
+    "nx",
+    "primeng",
+    "storybook",
+    "sandbox"
+  ],
+  "bugs": {
+    "url": "https://github.com/NineteenSevenFour/gate/issues"
+  },
+  "homepage": "https://github.com/NineteenSevenFour/gate/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineteenSevenFour/gate.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
   "private": true,
   "scripts": {
     "lint": "nx run-many --target=lint --all",
@@ -12,12 +38,18 @@
     "test": "nx run-many --target=test --all --codeCoverage",
     "prebuild": "rimraf dist",
     "build": "nx run-many --target=build --all",
+    "release": "nx run-many --target=release --all",
+    "release:local": "nx run-many --target=release --all -- --no-ci",
+    "publish": "nx run-many --target=deploy --all",
     "start": "nx run-many --target=serve --all",
     "reset": "npm run clean && rimraf package-lock.json .angular node_modules && npm cache verify",
     "setup": "npm ci && npm run prepare",
     "clean": "rimraf dist coverage testresults tmp .angular/cache ./node_modules/.cache/nx",
     "prepare": "husky install",
-    "postinstall": "ngcc --properties es2020 browser module main"
+    "postinstall": "ngcc --properties es2020 browser module main",
+    "npm:login:nineteensevenfour": "npm login --scope=@nineteensevenfour --registry=https://npm.pkg.github.com",
+    "npm:login": "npm login --registry=https://npm.pkg.github.com",
+    "commit": "cz"
   },
   "dependencies": {
     "@angular/animations": "14.2.8",
@@ -45,10 +77,16 @@
     "@nrwl/angular": "15.0.13",
     "@nrwl/cli": "15.0.4",
     "@nrwl/cypress": "15.0.4",
+    "@nrwl/devkit": "^15.2.1",
     "@nrwl/eslint-plugin-nx": "15.0.4",
     "@nrwl/jest": "15.0.4",
     "@nrwl/linter": "15.0.4",
     "@nrwl/workspace": "15.0.4",
+    "@semantic-release-plus/docker": "^3.1.2",
+    "@semantic-release-plus/nx-setup": "^1.0.0-beta.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.6",
     "@types/jest": "28.1.8",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "5.36.1",
@@ -63,15 +101,18 @@
     "jest-junit": "^14.0.1",
     "jest-preset-angular": "12.2.2",
     "ng-packagr": "14.2.2",
+    "ngx-deploy-npm": "^4.3.5",
     "nx": "15.0.4",
     "postcss": "^8.4.5",
     "postcss-import": "14.1.0",
     "postcss-preset-env": "7.5.0",
     "postcss-url": "10.1.3",
     "prettier": "2.6.2",
+    "semantic-release-plus": "^20.0.0",
     "ts-jest": "28.0.8",
     "ts-mockery": "^1.2.0",
     "ts-node": "10.9.1",
+    "typedoc": "^0.23.21",
     "typescript": "4.8.4",
     "webpack-merge": "^5.8.0"
   }

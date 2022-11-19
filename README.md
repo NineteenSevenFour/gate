@@ -1,5 +1,7 @@
 # **NX micro-frontend setup guide**
 
+[![semantic-release-plus: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release-plus/semantic-release)
+
 This guide will provides step by step to build a web micro-frontend application structured with NX workspace. There are two different templates. One for application and one for library. Your project will most likely be splitted into multiple workspaces that are managed by different team building up their own micro-frontend applications and libraries to interface with the host.
 
 ## **Setup environment**
@@ -103,10 +105,9 @@ From time to time, you will need to update / upgrade your packages to a newer ve
 
 While this guide is tailored for our needs, this is based on many good blog articles and tools documentation listed in a [Reading list](https://github.com/NineteenSevenFour/template-portal-app/blob/main/REFERENCES.md).
 
-# Powered by
+## Powered by
 
-```
-Powered by
+```text
   _   _ _            _                  ______               _____
  | \ | (_)          | |                |  ____|             / ____|
  |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __

@@ -1,7 +1,7 @@
 {
-  "name": "@gate/sdk",
-  "version": "0.0.1",
-  "description": "This is the SDK to build GATES applications.",
+  "name": "@nineteensevenfour/gate-sdk",
+  "version": "0.0.0",
+  "description": "This is the SDK to build GATE applications.",
   "author": {
     "email": "bruno.duval@datatunning.com",
     "name": "Bruno DUVAL"
@@ -13,15 +13,26 @@
     "angular",
     "nx",
     "primeng",
-    "storybook"
+    "storybook",
+    "sandbox"
   ],
-  "repository": "https://github.com/NineteenSevenFour/gates.git",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "bugs": {
+    "url": "https://github.com/NineteenSevenFour/gate/issues"
   },
+  "homepage": "https://github.com/NineteenSevenFour/gate/tree/main/libs/sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineteenSevenFour/gate.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "private": false,
+  "allow-same-version": true,
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": "^14.2.8",
+    "@angular/core": "^14.2.8"
   },
   "dependencies": {
     "tslib": "^2.3.0"

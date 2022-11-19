@@ -2,7 +2,29 @@
   "recommendations": [
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
-    "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "angular.ng-template",
+    "cyrilletuzi.angular-schematics",
+    "johnpapa.angular2",
+    "formulahendry.auto-close-tag",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "aaron-bond.better-comments",
+    "firefox-devtools.vscode-firefox-debug",
+    "msjsdiag.debugger-for-edge",
+    "oouo-diogo-perdigao.docthis",
+    "editorconfig.editorconfig",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "ecmel.vscode-html-css",
+    "orta.vscode-jest",
+    "eg2.vscode-npm-script",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "christian-kohler.npm-intellisense",
+    "ibm.output-colorizer",
+    "yigitfindikli.primeflexsnippets",
+    "christian-kohler.path-intellisense",
+    "simontest.simontest",
+    "redhat.vscode-yaml"
   ]
 }
