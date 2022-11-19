@@ -14,8 +14,8 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: ./.github/actions/setup.yaml
+      - uses: ./.github/actions/setup/action.yaml
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           node-version: ${{ matrix.node-version }}
-      - uses: ./.github/actions/build.yaml
+      - uses: ./.github/actions/build/action.yaml
