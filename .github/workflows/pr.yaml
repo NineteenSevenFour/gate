@@ -19,8 +19,8 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           fetch-depth: 0
-      - uses: ./.github/actions/setup/action.yml
+      - uses: ./.github/actions/setup
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           node-version: ${{ matrix.node-version }}
-      - uses: ./.github/actions/build/action.yml
+      - uses: ./.github/actions/build
