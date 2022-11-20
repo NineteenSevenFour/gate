@@ -32,6 +32,11 @@ runs:
         registry-url: ${{ inputs.registry}}
         # Defaults to the user or organization that owns the workflow file
         scope: '@nineteenfourseven'
+
+    - name: Install dependencies
+      shell: bash
+      run: npm install -g nx
+
     - name: Install dependencies
       shell: bash
       run: npm ci
