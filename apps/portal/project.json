@@ -93,6 +93,12 @@
         "devRemotes": ["adcon"]
       }
     },
+    "serve-mfe": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx serve adcon", "nx serve portal"]
+      }
+    },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
@@ -116,10 +122,14 @@
         "passWithNoTests": true
       }
     },
-    "serve-mfe": {
-      "executor": "nx:run-commands",
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx serve adcon", "nx serve portal"]
+        "commands": [
+          {
+            "command": "npx semantic-release --debug --extends=./apps/portal/release.config.js"
+          }
+        ]
       }
     }
   },

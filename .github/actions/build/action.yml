@@ -1,0 +1,16 @@
+name: Build
+description: Check, Build and Test
+runs:
+  using: composite
+  steps:
+    - name: Check
+      shell: bash
+      run: |
+        nx lint
+        nx format
+    - name: Test
+      shell: bash
+      run: nx test
+    - name: Build
+      shell: bash
+      run: nx build

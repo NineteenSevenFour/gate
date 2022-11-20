@@ -1,0 +1,17 @@
+name: Publish NPM
+description: Publish NPM packages
+runs:
+  using: composite
+  steps:
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx semantic-release
+
+    # - name: Publish
+    #   run: |
+    #     npx semantic-release
+    #     npm run publish
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

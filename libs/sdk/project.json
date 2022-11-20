@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/sdk/src",
-  "prefix": "sdk",
+  "prefix": "gate-sdk",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
@@ -32,6 +32,23 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/sdk/src/**/*.ts", "libs/sdk/src/**/*.html"]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "buildTarget": "production"
+      }
+    },
+    "release": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npx semantic-release --extends=./libs/sdk/release.config.js"
+          }
+        ]
       }
     }
   },
