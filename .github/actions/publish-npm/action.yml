@@ -6,8 +6,8 @@ runs:
     - name: Release
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
+        NPM_TOKEN: ${{ github.token }}
       run: npx semantic-release
 
     # - name: Publish
