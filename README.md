@@ -3,7 +3,7 @@
 [![semantic-release-plus: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release-plus/semantic-release)
 [![PR](https://github.com/NineteenSevenFour/gate/actions/workflows/pr.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/pr.yaml)
 
-This project is a sandbox for micro fontend development using Nx, Angular, Github, Semantic release, Husky and many other tools.
+This project is a sandbox for micro fontend development using Nx, Angular, Github, Semantic release, Husky and many other tools. The initial structure follows NX MFE architecture.
 
 ```text
   _   _ _            _                  ______               _____
