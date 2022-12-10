@@ -5,14 +5,7 @@ runs:
   steps:
     - name: Release
       shell: bash
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-        NPM_TOKEN: ${{ github.token }}
+      #env:
+      #  GITHUB_TOKEN: ${{ github.token }}
+      #  NPM_TOKEN: ${{ github.token }}
       run: npx semantic-release
-
-    # - name: Publish
-    #   run: |
-    #     npx semantic-release
-    #     npm run publish
-    #   env:
-    #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
