@@ -18,6 +18,7 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           fetch-depth: 0
+          persist-credentials: false
       - uses: ./.github/actions/setup
         with:
           ref: ${{ github.head.ref }}
