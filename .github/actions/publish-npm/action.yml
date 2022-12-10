@@ -1,5 +1,12 @@
 name: Publish NPM
-description: Publish NPM packages
+description: Publish NPM packages 
+inputs:
+  GH_TOKEN:
+    description: GH TOKEN
+    required: true
+  NPM_TOKEN:
+    description: NPM TOKEN
+    required: true
 runs:
   using: composite
   steps:
@@ -7,8 +14,5 @@ runs:
       shell: bash
       run: npx semantic-release
       env:
-      #env:
-        #  GITHUB_TOKEN: ${{ github.token }}
-        #  NPM_TOKEN: ${{ github.token }}
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
+        NPM_TOKEN: ${{ inputs.NPM_TOKEN }}
