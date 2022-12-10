@@ -5,7 +5,10 @@ runs:
   steps:
     - name: Release
       shell: bash
-      #env:
-      #  GITHUB_TOKEN: ${{ github.token }}
-      #  NPM_TOKEN: ${{ github.token }}
       run: npx semantic-release
+      env:
+      #env:
+        #  GITHUB_TOKEN: ${{ github.token }}
+        #  NPM_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
