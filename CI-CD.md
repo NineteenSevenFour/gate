@@ -1,4 +1,3 @@
-
 # **CI / CD**
 
 In this section, we will setup the `CI / CD` using Github Actions.
@@ -147,14 +146,12 @@ To get the coverage data in the proper format, edit the `packages.json` and add 
 
 > > CODE COVERAGE ONLY GENERATES HTML, MAY NOT WORK WITH codecov.io . codecov.io SELF-HOSTED EXE/PIPELINE REMAINS TO BUILD/TEST
 
-# Powered by
-
-``` 
+```text
 Powered by
-  _   _ _            _                  ______               _____                      
- | \ | (_)          | |                |  ____|             / ____|                     
- |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __  
- | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \ 
+  _   _ _            _                  ______               _____
+ | \ | (_)          | |                |  ____|             / ____|
+ |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __
+ | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \
  | |\  | | | | |  __/ ||  __/  __/ | | | | | (_) | |_| | |  ____) |  __/\ V /  __/ | | |
  |_| \_|_|_| |_|\___|\__\___|\___|_| |_|_|  \___/ \__,_|_| |_____/ \___| \_/ \___|_| |_|
 ```

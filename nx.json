@@ -3,6 +3,16 @@
   "affected": {
     "defaultBase": "main"
   },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -10,6 +20,10 @@
         "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
   },
   "generators": {
     "@nrwl/angular:application": {

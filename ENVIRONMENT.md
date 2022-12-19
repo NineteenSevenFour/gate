@@ -19,7 +19,7 @@ Run `nvm install <node_version>` to install node.js verison then `nvm use <node_
 Some packeages are required to build the application skeleton. First runs `npm list -g --depth=0` to list the globally installed packages, then runs the following commands (adapt based on what you already have or need to update)
 
 ```bash
-npm install -g nx@13 @nrwl/cli@13 @nrwl/workspace@13 create-nx-workspace@13 @ngrx/schematics@13 @angular/cli@13 @nrwl/schematics rimraf
+npm install -g nx@13 @nrwl/cli@14 @nrwl/workspace@14 create-nx-workspace@13 @ngrx/schematics@14 @angular/cli@14 @nrwl/schematics rimraf
 ```
 
 > Note that we are using version `13` on the whole toolcahin to match angular version.
@@ -27,18 +27,17 @@ npm install -g nx@13 @nrwl/cli@13 @nrwl/workspace@13 create-nx-workspace@13 @ngr
 > As of writing this, latest angular version is `14` but some dependencies may not yet be updated to latest angular version.
 
 > TIP: You can audit global packages using the following command.
-> ```bash 
+>
+> ```bash
 > npx npm-global-audit
 > ```
 
-# Powered by
-
-``` 
+```text
 Powered by
-  _   _ _            _                  ______               _____                      
- | \ | (_)          | |                |  ____|             / ____|                     
- |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __  
- | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \ 
+  _   _ _            _                  ______               _____
+ | \ | (_)          | |                |  ____|             / ____|
+ |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __
+ | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \
  | |\  | | | | |  __/ ||  __/  __/ | | | | | (_) | |_| | |  ____) |  __/\ V /  __/ | | |
  |_| \_|_|_| |_|\___|\__\___|\___|_| |_|_|  \___/ \__,_|_| |_____/ \___| \_/ \___|_| |_|
 ```

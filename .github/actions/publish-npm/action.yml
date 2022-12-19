@@ -1,5 +1,5 @@
 name: Publish NPM
-description: Publish NPM packages 
+description: Publish NPM packages
 inputs:
   GH_TOKEN:
     description: GH TOKEN
@@ -11,8 +11,9 @@ runs:
   using: composite
   steps:
     - name: Release
-      shell: bash
-      run: npx semantic-release
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
       env:
         GH_TOKEN: ${{ inputs.GH_TOKEN }}
         NPM_TOKEN: ${{ inputs.NPM_TOKEN }}
+      with:
+        targets: release
