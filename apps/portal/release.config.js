@@ -1,19 +1,17 @@
 const appName = 'portal';
 const appPath = `apps/${appName}`;
-const artifactName = appName;
+const rootPath = '../..';
+
 module.exports = {
-  branches: [
-    '+([0-9])?(.{+([0-9]),x}).x',
-    'main',
-    'next',
-    'next-major',
-    { name: 'beta', prerelease: true },
-    { name: 'alpha', prerelease: true },
-  ],
+  extends: `${rootPath}/release.config.base.js`,
   name: appName,
-  pkgRoot: `dist/${appPath}`, // should come from angular.cli
-  tagFormat: artifactName + '-v${version}',
-  commitPaths: ['force-release.md', `${appPath}/*`, 'libs/'], // should come from dep-graph and angular.json
+  pkgRoot: `${rootPath}/dist/${appPath}`, // should come from angular.cli
+  tagFormat: `${appName}-v${version}`,
+  commitPaths: [
+    `${rootPath}/package.json`,
+    `${rootPath}/package-lock.json`,
+    `*`, // anything in this directory
+  ],
   assets: [`${appPath}/README.md`, `${appPath}/CHANGELOG.md`],
   plugins: [
     '@semantic-release/commit-analyzer',
@@ -30,8 +28,8 @@ module.exports = {
         assets: [
           {
             path: `${appPath}/**`,
-            name: `${appName}` + '${nextRelease.gitTag}.zip',
-            label: `${appName}` + ' (${nextRelease.gitTag})',
+            name: `${appName}-${nextRelease.gitTag}.zip`,
+            label: `${appName}-(${nextRelease.gitTag})`,
           },
         ],
         successComment:
@@ -47,9 +45,7 @@ module.exports = {
       '@semantic-release/git',
       {
         assets: ['package.json', 'package-lock.json', 'CHANGELOG.md'],
-        message:
-          `chore(release): ${artifactName}` +
-          '-v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+        message: `chore(release): ${appName}-v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}`,
       },
     ],
   ],

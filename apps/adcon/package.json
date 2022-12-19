@@ -1,0 +1,35 @@
+{
+  "name": "@nineteensevenfour/adcon",
+  "version": "0.0.0",
+  "description": "This is the administrative micro frontend for the GATE applications.",
+  "author": {
+    "email": "bruno.duval@datatunning.com",
+    "name": "Bruno DUVAL"
+  },
+  "keywords": [
+    "portal",
+    "micro-frontend",
+    "typescript",
+    "angular",
+    "nx",
+    "primeng",
+    "storybook",
+    "sandbox"
+  ],
+  "bugs": {
+    "url": "https://github.com/NineteenSevenFour/gate/issues"
+  },
+  "homepage": "https://github.com/NineteenSevenFour/gate/tree/main/libs/sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineteenSevenFour/gate.git"
+  },
+  "private": true,
+  "peerDependencies": {
+    "@angular/common": "^14.2.8",
+    "@angular/core": "^14.2.8"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

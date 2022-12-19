@@ -35,8 +35,4 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: npm install -g nx
-
-    - name: Install dependencies
-      shell: bash
       run: npm ci

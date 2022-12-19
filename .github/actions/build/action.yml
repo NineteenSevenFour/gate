@@ -3,14 +3,8 @@ description: Check, Build and Test
 runs:
   using: composite
   steps:
-    - name: Check
-      shell: bash
-      run: |
-        nx lint
-        nx format
-    - name: Test
-      shell: bash
-      run: nx test
-    - name: Build
-      shell: bash
-      run: nx build
+    - name: Check, Test, Build
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
+      with:
+        targets: lint,format,test,build
+
