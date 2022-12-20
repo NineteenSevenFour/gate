@@ -46,7 +46,8 @@
       "options": {
         "commands": [
           {
-            "command": "npx semantic-release --extends=./libs/sdk/release.config.js"
+            "command": "npx semantic-release-plus",
+            "cwd": "libs/sdk/"
           }
         ]
       }

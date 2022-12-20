@@ -127,7 +127,8 @@
       "options": {
         "commands": [
           {
-            "command": "npx semantic-release --debug --extends=./apps/portal/release.config.js"
+            "command": "npx semantic-release-plus",
+            "cwd": "apps/portal/"
           }
         ]
       }
