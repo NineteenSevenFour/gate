@@ -1,9 +1,17 @@
-name: PR
+name: pr
 
 on:
   pull_request:
-    branches: ['main']
-    types: [opened, reopened, synchronize]
+    branches:
+      - main
+      - next
+      - beta
+      - alpha
+      - '*.x' # maintenance releases branches
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   build:

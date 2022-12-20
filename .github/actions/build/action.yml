@@ -7,4 +7,3 @@ runs:
       uses: MansaGroup/nrwl-nx-action@v3.1.0
       with:
         targets: lint,format,test,build
-
