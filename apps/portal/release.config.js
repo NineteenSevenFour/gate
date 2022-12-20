@@ -1,5 +1,8 @@
+/* eslint-disable */
+
 const appName = 'portal';
 const appPath = `apps/${appName}`;
+const libPath = `libs/`;
 const rootPath = '../..';
 
 module.exports = {
@@ -10,7 +13,8 @@ module.exports = {
   commitPaths: [
     `${rootPath}/package.json`,
     `${rootPath}/package-lock.json`,
-    `*`, // anything in this directory
+    `*`,
+    `${libPath}`
   ],
   assets: [`${appPath}/README.md`, `${appPath}/CHANGELOG.md`],
   plugins: [

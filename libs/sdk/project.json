@@ -44,12 +44,8 @@
     "release": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": [
-          {
-            "command": "npx semantic-release-plus",
-            "cwd": "libs/sdk/"
-          }
-        ]
+        "commands": ["npx semantic-release-plus"],
+        "cwd": "libs/sdk/"
       }
     }
   },
