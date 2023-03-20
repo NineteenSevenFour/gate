@@ -20,9 +20,17 @@ Open the file `.husky/pre-commit` and update as follow
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run lint
-npm run format
-npm test
+FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+[ -z "$FILES" ] && exit 0
+
+nx affected --target=lint
+nx affected --target=format
+nx affected --target=test
+
+# Add back the modified/prettified files to staging
+echo "$FILES" | xargs git add
+
+exit 0
 ```
 
 > Commit will fails at this stage unless you add at least one application or library. If you wish to commit before creating an application or library, do not update yet the husky.sh script.
@@ -32,9 +40,8 @@ npm test
 The second part of the pre-commit validation process is to validate the commit message. This is to ensure consistency in the format so that changelog can be generated automatically during CI build.
 
 ```bash
-npm install @commitlint/config-conventional @commitlint/cli -D
-
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit'
+npm install -D @commitlint/config-conventional @commitlint/cli
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'
 ```
 
 Rules declarations for commit messages are stored in file named `.commitlintrc.json` and paste the following code into it:
@@ -47,24 +54,23 @@ Rules declarations for commit messages are stored in file named `.commitlintrc.j
       2,
       "always",
       [
-        "ci",
+        "bug",
         "chore",
-        "docs",
+        "ci",
+        "doc",
         "feat",
         "fix",
         "perf",
         "refactor",
         "revert",
-        "style"
+        "ui"
       ]
     ]
   }
 }
 ```
 
-# Powered by
-
-``` 
+```text
 Powered by
   _   _ _            _                  ______               _____                      
  | \ | (_)          | |                |  ____|             / ____|                     

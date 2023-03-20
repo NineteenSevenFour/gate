@@ -1,42 +1,47 @@
-
 # **Packages` migration**
 
 Once in a while, packages must be upgraded. This must be done according to each packages compatibility matrix.
 
 ## Workspace
 
-nx migrate @nrwl/workspace@14.1.9
+```bash
+nx migrate @nrwl/workspace
+```
 
 ## Runtime Packages
 
-nx migrate @angular/animations@13.3.11
-nx migrate @angular/cdk@13.3.9
-nx migrate @angular/common@13.3.11
-nx migrate @angular/compiler@13.3.11
-nx migrate @angular/core@13.3.11
-nx migrate @angular/forms@13.3.11
-nx migrate @angular/material@13.3.9
-nx migrate @angular/platform-browser@13.3.11
-nx migrate @angular/platform-browser-dynamic@13.3.11
-nx migrate @angular/router@13.3.11
+```bash
+nx migrate @angular/animations
+nx migrate @angular/cdk
+nx migrate @angular/common
+nx migrate @angular/compiler
+nx migrate @angular/core
+nx migrate @angular/forms
+nx migrate @angular/material
+nx migrate @angular/platform-browser
+nx migrate @angular/platform-browser-dynamic
+nx migrate @angular/router
+```
 
 ## Dev packages
 
-nx migrate @angular-devkit/build-angular@13.3.9
-nx migrate @angular-eslint/eslint-plugin@13.5.0
-nx migrate @angular-eslint/eslint-plugin-template@13.5.0
-nx migrate @angular-eslint/template-parser@13.5.0
-nx migrate @angular/cli@13.3.9
-nx migrate @angular/compiler-cli@13.3.11
-nx migrate @angular/language-service@13.3.11
+```bash
+nx migrate @angular-devkit/build-angular
+nx migrate @angular-eslint/eslint-plugin
+nx migrate @angular-eslint/eslint-plugin-template
+nx migrate @angular-eslint/template-parser
+nx migrate @angular/cli
+nx migrate @angular/compiler-cli
+nx migrate @angular/language-service
+```
 
 ## Complete migration
 
+```bash
 nx migrate --run-migrations
+```
 
-# Powered by
-
-``` 
+```text
 Powered by
   _   _ _            _                  ______               _____                      
  | \ | (_)          | |                |  ____|             / ____|                     

@@ -4,13 +4,11 @@ The toolchain is based on entreprise battle tested tools.
 
 - Workspace management: `nx`, `nrwl`, `create-nx-workspace`
 - Source management: `git`, `husky`, `commitlint`
-- Dev tools: `angular`, `typescript`, `primeng`, `transloco`
+- Dev tools: `angular`, `typescript`, `primeng`, `transloco`, `ngrx`, `rxjs`
 
 ## **Node.JS**
 
-On windows, ensure `nvm` is installed, then run `nvm list` to check the installed node version if any. For our needs and at time of writing, we will use version `16.15.1` of node due to the tech stack dependencies.
-
-> On some windows setup, this version is not working. In this case, you can fallback onto version `16.13.2`
+On windows, ensure `nvm` is installed, then run `nvm list` to check the installed node version if any. For our needs and at time of writing, we will use version `18.14.1` of node due to the tech stack dependencies.
 
 Run `nvm install <node_version>` to install node.js verison then `nvm use <node_version>` to activate the newly installed version.
 
@@ -19,21 +17,17 @@ Run `nvm install <node_version>` to install node.js verison then `nvm use <node_
 Some packeages are required to build the application skeleton. First runs `npm list -g --depth=0` to list the globally installed packages, then runs the following commands (adapt based on what you already have or need to update)
 
 ```bash
-npm install -g nx@13 @nrwl/cli@13 @nrwl/workspace@13 create-nx-workspace@13 @ngrx/schematics@13 @angular/cli@13 @nrwl/schematics rimraf
+npm install -g @angular/cli @ngrx/schematics @nrwl/cli @nrwl/schematics @nrwl/workspace create-nx-workspace npm nx rimraf
 ```
 
-> Note that we are using version `13` on the whole toolcahin to match angular version.
-
-> As of writing this, latest angular version is `14` but some dependencies may not yet be updated to latest angular version.
-
+> As of writing this, latest angular major version is `15` but some dependencies may not yet be updated to latest angular version.
 > TIP: You can audit global packages using the following command.
-> ```bash 
-> npx npm-global-audit
-> ```
 
-# Powered by
+```bash
+npx npm-global-audit
+```
 
-``` 
+```text
 Powered by
   _   _ _            _                  ______               _____                      
  | \ | (_)          | |                |  ____|             / ____|                     

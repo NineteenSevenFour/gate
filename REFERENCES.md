@@ -15,9 +15,7 @@
 [husky+ESLint+Prettier](https://medium.com/angular-in-depth/husky-6-lint-prettier-eslint-and-commitlint-for-javascript-project-d7174d44735a)
 [conventional changelog](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format)
 
-# Powered by
-
-``` 
+```text
 Powered by
   _   _ _            _                  ______               _____                      
  | \ | (_)          | |                |  ____|             / ____|                     
