@@ -1,0 +1,37 @@
+{
+  "name": "@nineteensevenfour/gate",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "email": "bruno.duval@datatunning.com",
+    "name": "Bruno DUVAL"
+  },
+  "keywords": [
+    "micro-frontend",
+    "nx"
+  ],
+  "bugs": {
+    "url": "https://github.com/NineteenSevenFour/gate/issues"
+  },
+  "homepage": "https://github.com/NineteenSevenFour/gate/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineteenSevenFour/gate.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "private": true,
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@nrwl/workspace": "15.8.7",
+    "husky": "^8.0.0",
+    "nx": "15.8.7",
+    "prettier": "^2.6.2"
+  }
+}

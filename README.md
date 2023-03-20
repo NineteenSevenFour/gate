@@ -18,9 +18,22 @@ We will use the `create-nx-workspace` package to generate the workspace. Refers 
 npx create-nx-workspace MyApp --name MyApp --style scss --preset apps --nxCloud false --skipGit true --ci github
 ```
 
-> TIP: Run the command without arguments to have the interactive mode on.
+> TIP
+> Run the command without arguments to have the interactive mode on.
+> Using something like `@MyOrgMyApp` as first parameter will create a nested folder structure, but the application name wil be MyApp.
 
-> TIP: Using something like `@MyOrgMyApp` as first parameter will create a nested folder structure, but the application name wil be MyApp.
+As an alternative, if creating from github App or Lib template, you can initialize the existing git repo as follow:
+
+```bash
+npx nx@latest init
+```
+
+The select the following options from the interactive mode:
+
+ -`Integrated monorepo:        Nx configures your favorite frameworks and lets you focus on shipping features.`
+ -`apps              [an empty monorepo with no plugins with a layout that works best for building apps]`
+ -`No | Yes` (that's your choice to use the distributed Cloud CI)
+ -Then mode all the files from the init subfolder to the root folder...yeahh...it's a shame NX doesn't seems to have a better way.
 
 ### **Scaffold a Host application**
 
