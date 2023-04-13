@@ -3,7 +3,9 @@
 
 In this section, we will setup the `CI / CD` using Github Actions.
 
-## **Github action**
+## **GitHub**
+
+### **Action**
 
 First, create the`.github/workflows` folder structure and add an empty `.gitkeep` file in each folder. Inside the lower `workflows` folder, create a `ci.yaml` file and add the folowing code.
 
@@ -56,7 +58,7 @@ jobs:
           npm run build
 ```
 
-## **Github packages registry**
+### **Packages registry**
 
 In order to allow other team to build application for the portal, we must publish our `Portal SDK` composed of various npm packages. We will use the Github packages registry, but any other registry will works too and will need the pipeline to be adapted accordingly.
 
@@ -69,7 +71,7 @@ Update the `package.json` and add the code coverage section with the following.
   },
 ```
 
-## **Codecov.io support**
+### **Codecov.io integration**
 
 Optionally, update the `ci.yaml` and add the code coverage section as follow.
 
@@ -147,14 +149,13 @@ To get the coverage data in the proper format, edit the `packages.json` and add 
 
 > > CODE COVERAGE ONLY GENERATES HTML, MAY NOT WORK WITH codecov.io . codecov.io SELF-HOSTED EXE/PIPELINE REMAINS TO BUILD/TEST
 
-# Powered by
+## Powered by
 
-``` 
-Powered by
-  _   _ _            _                  ______               _____                      
- | \ | (_)          | |                |  ____|             / ____|                     
- |  \| |_ _ __   ___| |_ ___  ___ _ __ | |__ ___  _   _ _ _| (___   _____   _____ _ __  
- | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \|  __/ _ \| | | | '__\___ \ / _ \ \ / / _ \ '_ \ 
- | |\  | | | | |  __/ ||  __/  __/ | | | | | (_) | |_| | |  ____) |  __/\ V /  __/ | | |
- |_| \_|_|_| |_|\___|\__\___|\___|_| |_|_|  \___/ \__,_|_| |_____/ \___| \_/ \___|_| |_|
+```text
+  _   _ _            _                   _____                      ______               
+ | \ | (_)          | |                 / ____|                    |  ____|              
+ |  \| |_ _ __   ___| |_ ___  ___ _ __ | (___   _____   _____ _ __ | |__ ___  _   _ _ __ 
+ | . ` | | '_ \ / _ \ __/ _ \/ _ \ '_ \ \___ \ / _ \ \ / / _ \ '_ \|  __/ _ \| | | | '__|
+ | |\  | | | | |  __/ ||  __/  __/ | | |____) |  __/\ V /  __/ | | | | | (_) | |_| | |   
+ |_| \_|_|_| |_|\___|\__\___|\___|_| |_|_____/ \___| \_/ \___|_| |_|_|  \___/ \__,_|_|
 ```
