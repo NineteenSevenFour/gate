@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "gatehub-swagger",
+  "targets": {
+    "build": {
+      "executor": "nx:noop",
+      "outputs": ["{projectRoot}"]
+    },
+    "codegen": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/libs/gatehub-typings"],
+      "options": {
+        "commands": [
+          "rm -Rf libs/gatehub-typings/src/**/",
+          "rm -Rf libs/gatehub-typings/src/index.ts",
+          "npx openapi-typescript-codegen --exportSchemas true --indent 2 -c fetch -i libs/gatehub-swagger/swagger.json -o libs/gatehub-typings/src"
+        ],
+        "parallel": false
+      },
+      "dependsOn": ["^swagger"]
+    }
+  },
+  "implicitDependencies": ["gatehub"]
+}
