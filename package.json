@@ -8,7 +8,9 @@
   },
   "keywords": [
     "micro-frontend",
-    "nx"
+    "nx",
+    "angular",
+    "nx-dotnet"
   ],
   "bugs": {
     "url": "https://github.com/NineteenSevenFour/gate/issues"
@@ -29,6 +31,8 @@
     "format": "nx run-many --target=format",
     "test": "nx run-many --target=test",
     "build": "nx run-many --target=build",
+    "serve": "concurrently serve:*",
+    "serve:api":"nx run gatehub:serve",
     "reset": "nx reset"
   },
   "dependencies": {
@@ -47,6 +51,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
+    "concurrently": "^8.0.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "husky": "^8.0.0",
