@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{15B930AF-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nineteensevenfour.gatehub", "apps\gatehub\gatehub.csproj", "{DA387AB7-1F18-4AF3-A124-9C479F78EC99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nineteensevenfour.gatehub.Test", "apps\gatehub-test\gatehub.Test.csproj", "{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nineteensevenfour.gatehub.test", "apps\gatehub-test\310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
