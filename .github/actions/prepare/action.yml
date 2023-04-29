@@ -2,7 +2,7 @@ name: Prepare
 description: Prepare GIT
 
 inputs:
-  ref:
+  baseRef:
     description: GIT reference
     required: false
     default: main
@@ -13,7 +13,7 @@ runs:
     ## Make sure we have all branches so that nx affected works.
     - name: Fetch other branches
       shell: bash
-      run: git fetch --no-tags --prune --depth=5 origin ${{ inputs.ref }}
+      run: git fetch --no-tags --prune --depth=5 origin ${{ inputs.baseRef }}
 
     - name: Setup git user to "NineteenSevenFour Bot"
       shell: bash
