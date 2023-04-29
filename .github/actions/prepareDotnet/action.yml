@@ -1,5 +1,5 @@
 name: Setup Dotnet
-description: Setup Dotnet
+description: Setup Dotnet env (registry, authentication) and restore pacckages
 
 inputs:
   version:

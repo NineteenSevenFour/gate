@@ -1,5 +1,5 @@
 name: Setup Node.JS
-description: Setup Node.js
+description: Setup Node.js env (registry, authentication) and restore pacckages
 
 inputs:
   version:

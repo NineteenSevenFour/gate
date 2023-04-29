@@ -1,9 +1,9 @@
-name: Prepare
-description: Prepare GIT
+name: Prepare GIT
+description: Prepare GIT bot user and base branch for nx affected command
 
 inputs:
   baseRef:
-    description: GIT reference
+    description: GIT base branch reference
     required: false
     default: main
 

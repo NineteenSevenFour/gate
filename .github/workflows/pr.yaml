@@ -26,12 +26,12 @@ jobs:
       - name: Checkout all commits
         uses: actions/checkout@v3
         with:
-          baseRef: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - uses: ./.github/actions/prepareGit
         with:
-          ref: main
+          baseRef: main
 
       - uses: ./.github/actions/prepareDotnet
         with:
