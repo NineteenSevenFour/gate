@@ -5,30 +5,30 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{15B930AF-0305-4F47-B6C0-F90647C1BFFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nineteensevenfour.gatehub", "apps\gatehub\gatehub.csproj", "{DA387AB7-1F18-4AF3-A124-9C479F78EC99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub", "apps\gatehub\gatehub.csproj", "{DA387AB7-1F18-4AF3-A124-9C479F78EC99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nineteensevenfour.gatehub.test", "apps\gatehub-test\310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub.test", "apps\gatehub-test\gatehub.test.csproj", "{F9F27D47-8685-4DB6-9103-A51F07292443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F27D47-8685-4DB6-9103-A51F07292443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F27D47-8685-4DB6-9103-A51F07292443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F27D47-8685-4DB6-9103-A51F07292443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F27D47-8685-4DB6-9103-A51F07292443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99} = {15B930AF-0305-4F47-B6C0-F90647C1BFFB}
-		{310B08DB-7AFE-417C-B62F-D8C85E0ACC9E} = {15B930AF-0305-4F47-B6C0-F90647C1BFFB}
+		{F9F27D47-8685-4DB6-9103-A51F07292443} = {15B930AF-0305-4F47-B6C0-F90647C1BFFB}
 	EndGlobalSection
 EndGlobal
