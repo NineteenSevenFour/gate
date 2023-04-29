@@ -23,18 +23,15 @@ jobs:
         dotnet-version: [6.0.x]
 
     steps:
-      - uses: ./.github/actions/prepareGit
-
       - name: Checkout all commits
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Fetch other branches
-        shell: bash
-        ## Make sure we have all branches so that nx affected works.
-        run: git fetch --no-tags --prune --depth=5 origin main
+      - uses: ./.github/actions/prepareGit
+        with:
+          baseRef: main
 
       - uses: ./.github/actions/prepareDotnet
         with:
