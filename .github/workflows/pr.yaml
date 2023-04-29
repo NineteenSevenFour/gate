@@ -38,12 +38,15 @@ jobs:
           version: ${{ matrix.dotnet-version }} # uses the matrix defined above
           registry: https://nuget.pkg.github.com # optional / default value
           scope: nineteensevenfour # optional / default value
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: ./.github/actions/prepareNode
         with:
           version: ${{ matrix.node-version }} # uses the matrix defined above
           registry: https://npm.pkg.github.com # optional / default value
           scope: nineteensevenfour # optional / default value
+          gh_token: ${{ secrets.GH_TOKEN }}
+          npm_token: ${{ secrets.NPM_TOKEN }}
 
       - uses: ./.github/actions/validate
         with:

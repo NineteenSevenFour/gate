@@ -17,6 +17,10 @@ inputs:
     required: false
     default: nineteensevenfour
 
+  gh_token:
+    description: GH TOKEN
+    required: true
+
 runs:
   using: composite
   steps:
@@ -26,7 +30,7 @@ runs:
         dotnet-version: ${{ inputs.version }}
         source-url: '${{ inputs.registry }}/${{ inputs.scope }}/index.json'
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{ inputs.gh_token }}
 
     - name: Install dependencies
       shell: bash
