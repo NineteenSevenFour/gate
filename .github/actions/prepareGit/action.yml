@@ -1,20 +1,13 @@
 name: Prepare GIT
-description: Prepare GIT bot user and base branch for nx affected command
-
-inputs:
-  baseRef:
-    description: GIT base branch reference
-    required: false
-    default: main
+description: Prepare GIT (default branch, bot user)
 
 runs:
   using: composite
   steps:
-    ## Make sure we have all branches so that nx affected works.
-    - name: Fetch other branches
+    - name: Configure git
       shell: bash
-      run: git fetch --no-tags --prune --depth=5 origin ${{ inputs.baseRef }}
+      run: |
+      git config user.email "-" && \
+      git config user.name "NineteenSevenFour Bot" && \
+      git config --global init.defaultBranch <name>
 
-    - name: Setup git user to "NineteenSevenFour Bot"
-      shell: bash
-      run: git config user.email "-" && git config user.name "NineteenSevenFour Bot"
