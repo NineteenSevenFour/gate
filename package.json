@@ -31,7 +31,7 @@
   },
   "private": true,
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "git config core.ignorecase false && husky install",
     "lint": "nx run-many --target=lint",
     "format": "nx run-many --target=format",
     "test": "nx run-many --target=test",
