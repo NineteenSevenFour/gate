@@ -1,0 +1,20 @@
+name: Prepare
+description: Prepare GIT
+
+inputs:
+  ref:
+    description: GIT reference
+    required: false
+    default: main
+
+runs:
+  using: composite
+  steps:
+    ## Make sure we have all branches so that nx affected works.
+    - name: Fetch other branches
+      shell: bash
+      run: git fetch --no-tags --prune --depth=5 origin ${{ inputs.ref }}
+
+    - name: Setup git user to "NineteenSevenFour Bot"
+      shell: bash
+      run: git config user.email "-" && git config user.name "NineteenSevenFour Bot"

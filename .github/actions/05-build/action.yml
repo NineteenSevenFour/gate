@@ -1,0 +1,10 @@
+name: Build
+description: Build project(s)
+
+runs:
+  using: composite
+  steps:
+    - name: Build
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
+      with:
+        targets: build

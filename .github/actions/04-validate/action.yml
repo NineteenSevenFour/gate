@@ -1,0 +1,43 @@
+name: Checks
+description: Run code checks
+
+inputs:
+  codecov_token:
+    description: CodeCov TOKEN
+    required: true
+  coverage_files:
+    description: Coverage file list
+    required: true
+  coverage_report_name:
+    description: Coverage file list
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Run linting check
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
+      with:
+        targets: lint
+        all: true
+
+    - name: Run formating check
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
+      with:
+        targets: format
+        all: true
+
+    - name: Run tests
+      uses: MansaGroup/nrwl-nx-action@v3.1.0
+      with:
+        targets: test
+        all: true
+
+    - name: Report coverage
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ inputs.codecov_token }}
+        flags: unittests # optional
+        name: ${{ inputs.coverage_report_name }} # optional
+        # directory: ./coverage
+        files: ${{ inputs.coverage_files }}
