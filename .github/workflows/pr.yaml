@@ -29,17 +29,17 @@ jobs:
           baseRef: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - uses: ./.github/actions/prepare
+      - uses: ./.github/actions/prepareGit
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: main
 
-      - uses: ./.github/actions/setup_dotnet
+      - uses: ./.github/actions/prepareDotnet
         with:
           version: ${{ matrix.dotnet-version }} # uses the matrix defined above
           registry: https://nuget.pkg.github.com # optional / default value
           scope: nineteensevenfour # optional / default value
 
-      - uses: ./.github/actions/setup_node
+      - uses: ./.github/actions/prepareNode
         with:
           version: ${{ matrix.node-version }} # uses the matrix defined above
           registry: https://npm.pkg.github.com # optional / default value
