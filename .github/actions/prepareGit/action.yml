@@ -20,5 +20,5 @@ runs:
       run: |
       git config user.email "-" && \
       git config user.name "NineteenSevenFour Bot" && \
-      git config --global init.defaultBranch <name>
+      git config --global init.defaultBranch main
 
