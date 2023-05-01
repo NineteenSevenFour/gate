@@ -7,5 +7,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory:
-    '../../coverage/libs/gatehub-typings',
+    '../../testresults/libs/gatehub-typings',
 };
