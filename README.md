@@ -1,6 +1,6 @@
-[![Gitjub](https://github.com/NineteenSevenFour/gate/actions/workflows/pr.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/pr.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate)
-
 # **NX micro-frontend setup guide**
+
+[![Github CI](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml) [![github CD](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate)
 
 This guide will provides step by step to build a web micro-frontend application structured with NX workspace. There are two different templates. One for application and one for library. Your project will most likely be splitted into multiple workspaces that are managed by different team building up their own micro-frontend applications and libraries to interface with the host.
 
