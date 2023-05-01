@@ -51,7 +51,8 @@ jobs:
       - uses: ./.github/actions/validate
         with:
           codecov_token: ${{ secrets.CODECOV_TOKEN }}
-          coverage_files: ./coverage/apps/adcon/cobertura-coverage.xml,./coverage/apps/portal/cobertura-coverage.xml,./coverage/libs/sdk/cobertura-coverage.xml
+          coverage_directory: './testresults/'
+          #coverage_files: ./testresults/apps/adcon/cobertura-coverage.xml,./testresults/apps/portal/cobertura-coverage.xml,./testresults/libs/sdk/cobertura-coverage.xml
           coverage_report_name: nineteensevenfour-gate
 
       - uses: ./.github/actions/build

@@ -5,9 +5,17 @@ inputs:
   codecov_token:
     description: CodeCov TOKEN
     required: true
+
   coverage_files:
     description: Coverage file list
-    required: true
+    required: false
+    deffault: ''
+
+  coverage_directory:
+    description: Coverage directory to search
+    required: false
+    default: ./testresults
+
   coverage_report_name:
     description: Coverage file list
     required: true
@@ -33,11 +41,20 @@ runs:
         targets: test
         all: true
 
-    - name: Report coverage
+    - name: Report coverage (files)
       uses: codecov/codecov-action@v3
+      if: "${{ inputs.coverage_files != '' }}"
       with:
         token: ${{ inputs.codecov_token }}
         flags: unittests # optional
         name: ${{ inputs.coverage_report_name }} # optional
-        # directory: ./coverage
         files: ${{ inputs.coverage_files }}
+
+    - name: Report coverage (directory)
+      uses: codecov/codecov-action@v3
+      if: "${{ inputs.coverage_directory != '' }}"
+      with:
+        token: ${{ inputs.codecov_token }}
+        flags: unittests # optional
+        name: ${{ inputs.coverage_report_name }} # optional
+        directory: ${{ inputs.coverage_directory }}
