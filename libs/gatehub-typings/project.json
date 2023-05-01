@@ -25,7 +25,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": ["{workspaceRoot}/testresults/{projectRoot}"],
       "options": {
         "jestConfig": "libs/gatehub-typings/jest.config.ts",
         "passWithNoTests": true

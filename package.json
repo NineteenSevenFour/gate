@@ -8,9 +8,14 @@
   },
   "keywords": [
     "micro-frontend",
-    "nx",
     "angular",
-    "nx-dotnet"
+    "netcore",
+    "webapi",
+    "typescript",
+    "codegen",
+    "nx",
+    "nx-dotnet",
+    "github actions"
   ],
   "bugs": {
     "url": "https://github.com/NineteenSevenFour/gate/issues"
@@ -26,13 +31,14 @@
   },
   "private": true,
   "scripts": {
-    "prepare": "husky install && nx g @nx-dotnet/core:restore",
+    "prepare": "git config core.ignorecase false && husky install",
     "lint": "nx run-many --target=lint",
     "format": "nx run-many --target=format",
     "test": "nx run-many --target=test",
     "build": "nx run-many --target=build",
-    "serve": "concurrently serve:*",
+    "serve": "concurrently npm:serve:*",
     "serve:api":"nx run gatehub:serve",
+    "setup" : "nx g @nx-dotnet/core:restore & npm ci",
     "reset": "nx reset"
   },
   "dependencies": {

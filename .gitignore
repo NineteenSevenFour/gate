@@ -9,6 +9,7 @@ libs/gatehub-typings/src/**/*.*
 dist
 tmp
 /out-tsc
+testresults
 
 # dependencies
 node_modules
