@@ -9,6 +9,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub", "apps\gatehub\gat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub.test", "apps\gatehub-test\gatehub.test.csproj", "{F9F27D47-8685-4DB6-9103-A51F07292443}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{87DF8A08-4C21-4F28-A898-728DD15E16E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub-domain", "libs\gatehub-domain\gatehub-domain.csproj", "{242E2815-E14E-4C07-B4A4-0F23937651EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub-domain-test", "libs\gatehub-domain-test\gatehub-domain-test.csproj", "{22CA2B50-461C-48B2-A957-37AA39A2E813}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub-efcore", "libs\gatehub-efcore\gatehub-efcore.csproj", "{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gatehub-efcore-test", "libs\gatehub-efcore.test\gatehub-efcore-test.csproj", "{AFA5752A-EC08-4114-A22B-3F11BEAB1820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +33,22 @@ Global
 		{F9F27D47-8685-4DB6-9103-A51F07292443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9F27D47-8685-4DB6-9103-A51F07292443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9F27D47-8685-4DB6-9103-A51F07292443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242E2815-E14E-4C07-B4A4-0F23937651EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242E2815-E14E-4C07-B4A4-0F23937651EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242E2815-E14E-4C07-B4A4-0F23937651EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242E2815-E14E-4C07-B4A4-0F23937651EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CA2B50-461C-48B2-A957-37AA39A2E813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CA2B50-461C-48B2-A957-37AA39A2E813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CA2B50-461C-48B2-A957-37AA39A2E813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CA2B50-461C-48B2-A957-37AA39A2E813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFA5752A-EC08-4114-A22B-3F11BEAB1820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA5752A-EC08-4114-A22B-3F11BEAB1820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA5752A-EC08-4114-A22B-3F11BEAB1820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA5752A-EC08-4114-A22B-3F11BEAB1820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +56,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DA387AB7-1F18-4AF3-A124-9C479F78EC99} = {15B930AF-0305-4F47-B6C0-F90647C1BFFB}
 		{F9F27D47-8685-4DB6-9103-A51F07292443} = {15B930AF-0305-4F47-B6C0-F90647C1BFFB}
+		{242E2815-E14E-4C07-B4A4-0F23937651EE} = {87DF8A08-4C21-4F28-A898-728DD15E16E8}
+		{22CA2B50-461C-48B2-A957-37AA39A2E813} = {87DF8A08-4C21-4F28-A898-728DD15E16E8}
+		{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8} = {87DF8A08-4C21-4F28-A898-728DD15E16E8}
+		{AFA5752A-EC08-4114-A22B-3F11BEAB1820} = {87DF8A08-4C21-4F28-A898-728DD15E16E8}
 	EndGlobalSection
 EndGlobal

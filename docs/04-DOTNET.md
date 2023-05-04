@@ -1,9 +1,25 @@
 # Integrate NX with dotnetcore
 
+## Initialize nx-dotnet
+
 ```bash
 npm i --save-dev @nx-dotnet/core
 npx nx g @nx-dotnet/core:init
-npx nx g @nx-dotnet/core:app gatehub --test-template nunit --language C# --solutionFile gatehub.sln
+```
+
+## Create a webapi
+
+```bash
+npx nx g @nx-dotnet/core:app gatehub --pathScheme dotnet --template webapi --test-template nunit --language C# --solutionFile gatehub.sln
+```
+
+## Create a library
+
+```bash
+npx nx g @nx-dotnet/core:library gatehub-domain --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile gatehub.sln
+
+
+npx nx g @nx-dotnet/core:library gatehub-efcore --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile gatehub.sln
 ```
 
 ## Powered by
