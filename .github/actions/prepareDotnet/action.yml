@@ -21,6 +21,11 @@ inputs:
     description: GH TOKEN
     required: true
 
+  sln:
+    description: Solution file to restore
+    required: true
+    default: ./nineteensevenfour.sln
+
 runs:
   using: composite
   steps:
@@ -34,4 +39,4 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: dotnet restore
+      run: dotnet restore ${{ inputs.sln }}

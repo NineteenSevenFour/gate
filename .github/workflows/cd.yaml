@@ -35,6 +35,7 @@ jobs:
           registry: https://nuget.pkg.github.com # optional / default value
           scope: nineteensevenfour # optional / default value
           gh_token: ${{ secrets.GITHUB_TOKEN }}
+          sln: ./nineteensevenfour.sln
 
       - uses: ./.github/actions/prepareNode
         with:

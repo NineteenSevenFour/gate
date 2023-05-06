@@ -43,5 +43,13 @@
     ],
     "sharedGlobals": []
   },
-  "plugins": ["@nx-dotnet/core"]
+  "plugins": ["@nx-dotnet/core"],
+  "generators": {
+    "@nx-dotnet/core:application": {
+      "solutionFile": "nineteensevenfour.sln"
+    },
+    "@nx-dotnet/core:library": {
+      "solutionFile": "nineteensevenfour.sln"
+    }
+  }
 }
