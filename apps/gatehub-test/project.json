@@ -31,5 +31,6 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": []
+  "tags": ["scope:api",  "type:test"],
+  "implicitDependencies": ["gatehub"]
 }

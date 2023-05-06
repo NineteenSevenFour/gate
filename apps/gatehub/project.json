@@ -40,5 +40,7 @@
       },
       "dependsOn": ["build"]
     }
-  }
+  },
+  "tags": ["scope:api", "type:app"],
+  "implicitDependencies": ["gatehub-domain", "gatehub-efcore"]
 }

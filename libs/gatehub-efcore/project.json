@@ -24,5 +24,6 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": []
+  "tags": ["scope:api", "type:lib"],
+  "implicitDependencies": ["gatehub-domain"]
 }

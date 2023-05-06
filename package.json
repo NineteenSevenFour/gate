@@ -41,6 +41,7 @@
     "serve": "concurrently npm:serve:*",
     "serve:api":"nx run gatehub:serve",
     "setup" : "nx g @nx-dotnet/core:restore & npm ci",
+    "graph": "nx graph",
     "reset": "nx reset"
   },
   "dependencies": {

@@ -1,7 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "gatehub-typings",
-  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -38,5 +37,6 @@
       }
     }
   },
+  "tags": ["scope:mfe", "type:lib"],
   "implicitDependencies": ["gatehub-swagger"]
 }

@@ -20,5 +20,6 @@
       "dependsOn": ["^swagger"]
     }
   },
+  "tags": ["scope:api", "type:lib"],
   "implicitDependencies": ["gatehub"]
 }
