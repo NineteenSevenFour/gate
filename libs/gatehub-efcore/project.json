@@ -1,5 +1,5 @@
 {
-  "name": "gatehub-efcore",
+  "name": "NineteenSevenFour.Gatehub.EFCore",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/gatehub-efcore",
@@ -16,7 +16,8 @@
       },
       "configurations": {
         "production": {
-          "configuration": "Release"
+          "configuration": "Release",
+          "noDependencies": true
         }
       }
     },
@@ -25,5 +26,5 @@
     }
   },
   "tags": ["scope:api", "type:lib"],
-  "implicitDependencies": ["gatehub-domain"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain"]
 }

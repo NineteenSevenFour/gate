@@ -1,5 +1,5 @@
 {
-  "name": "gatehub-domain-test",
+  "name": "NineteenSevenFour.Gatehub.Domain.Test",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/gatehub-domain-test",
@@ -16,7 +16,8 @@
       },
       "configurations": {
         "production": {
-          "configuration": "Release"
+          "configuration": "Release",
+          "noDependencies": true
         }
       }
     },
@@ -29,5 +30,5 @@
     }
   },
   "tags": ["scope:api", "type:test"],
-  "implicitDependencies": ["gatehub-domain"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain"]
 }

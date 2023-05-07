@@ -38,10 +38,12 @@
     "format:fix": "nx run-many --target=format --fix",
     "test": "nx run-many --target=test",
     "build": "nx run-many --target=build",
-    "serve": "concurrently npm:serve:*",
-    "serve:api":"nx run gatehub:serve",
+    "serve:dev": "concurrently npm:serve:dev:*",
+    "serve:dev:api":"nx run NineteenSevenFour.Gatehub:serve",
+    "serve:prod": "concurrently npm:serve:prod*",
+    "serve:prod:api":"nx run NineteenSevenFour.Gatehub:serve:production",
     "setup" : "nx g @nx-dotnet/core:restore & npm ci",
-    "graph": "nx graph",
+    "graph": "nx graph --wtch",
     "reset": "nx reset"
   },
   "dependencies": {

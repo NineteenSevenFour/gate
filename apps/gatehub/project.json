@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "gatehub",
+  "name": "NineteenSevenFour.Gatehub",
   "targets": {
     "build": {
       "executor": "@nx-dotnet/core:build",
@@ -14,18 +14,21 @@
       },
       "configurations": {
         "production": {
-          "configuration": "Release"
+          "configuration": "Release",
+          "noDependencies": true
         }
       }
     },
     "serve": {
       "executor": "@nx-dotnet/core:serve",
       "options": {
-        "configuration": "Debug"
+        "configuration": "Debug",
+        "noDependencies": true
       },
       "configurations": {
         "production": {
-          "configuration": "Release"
+          "configuration": "Release",
+          "noDependencies": true
         }
       }
     },
@@ -42,5 +45,5 @@
     }
   },
   "tags": ["scope:api", "type:app"],
-  "implicitDependencies": ["gatehub-domain", "gatehub-efcore"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.EFCore", "NineteenSevenFour.Gatehub.EFCore.SQLite"]
 }

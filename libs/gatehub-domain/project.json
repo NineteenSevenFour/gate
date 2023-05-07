@@ -1,5 +1,5 @@
 {
-  "name": "gatehub-domain",
+  "name": "NineteenSevenFour.Gatehub.Domain",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/gatehub-domain",
@@ -16,7 +16,8 @@
       },
       "configurations": {
         "production": {
-          "configuration": "Release"
+          "configuration": "Release",
+          "noDependencies": true
         }
       }
     },
