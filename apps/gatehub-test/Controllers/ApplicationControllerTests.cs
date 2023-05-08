@@ -30,10 +30,9 @@ public class ApplicationControllerTests
 
     // Assert
     var okObjectResult = actionResult as ObjectResult;
-    Assert.IsNotNull(okObjectResult);
+    Assert.That(okObjectResult, Is.Not.Null);
     okObjectResult?.StatusCode.Should().Be(StatusCodes.Status200OK);
   }
-
 
   [Test]
   public void List_ShouldReturn_Status500InternalServerError_OnError()
@@ -52,10 +51,10 @@ public class ApplicationControllerTests
 
     // Assert
     var errorObjectResult = actionResult as ObjectResult;
-    Assert.IsNotNull(errorObjectResult);
+    Assert.That(errorObjectResult, Is.Not.Null);
     errorObjectResult?.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
     var problemDetail = errorObjectResult?.Value as ProblemDetails;
-    Assert.IsNotNull(problemDetail);
+    Assert.That(problemDetail, Is.Not.Null);
     problemDetail?.Detail.Should().Contain(errorMessage);
   }
 }

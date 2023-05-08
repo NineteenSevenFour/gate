@@ -1,9 +1,12 @@
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace NineteenSevenFour.Gatehub.Domain.Exceptions;
 
 /// <summary>
 /// Exception raised when entity not exist in database and operation can not procced.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public class EntityNotFoundException : Exception
 {
   /// <summary>

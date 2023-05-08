@@ -1,3 +1,5 @@
 {
-    "dotnet-test-explorer.runInParallel": true
+    "dotnet-test-explorer.runInParallel": true,
+    "dotnet-test-explorer.testArguments": " --collect:\"XPlat Code Coverage\"",
+    "dotnet-test-explorer.testProjectPath": "**/*.Test.csproj"
 }

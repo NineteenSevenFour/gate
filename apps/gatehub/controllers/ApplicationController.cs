@@ -44,21 +44,10 @@ public class ApplicationController : ControllerBase
     {
       return Ok(this.applicationService.GetAll());
     }
-    catch (EntityNotFoundException notFoundEx)
-    {
-      return NotFound(notFoundEx.Message);
-    }
     catch (Exception ex)
     {
-      this.logger.LogError(ex.Message, ex.InnerException);
-
-      string message = ex.Message;
-      if (!string.IsNullOrWhiteSpace(ex?.InnerException?.Message))
-      {
-        message += $" - Inner exception: {ex.InnerException.Message}";
-      }
-
-      return Problem(detail: message, statusCode: StatusCodes.Status500InternalServerError);
+      logger.LogError(ex, "{message}", ex.Message);
+      return Problem(detail: string.Format("{0}", ex.Message), statusCode: StatusCodes.Status500InternalServerError);
     }
   }
 }

@@ -9,6 +9,7 @@ using NineteenSevenFour.Gatehub.Domain.Interfaces;
 using NineteenSevenFour.Gatehub.EFCore.SQLite.Services;
 using Swashbuckle.AspNetCore.Filters;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -129,3 +130,12 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/// <summary>
+/// Gatehub api entry point
+/// </summary>
+/// <remarks>
+///Trick the coverage reporting tool to exclude this file
+/// </remarks>
+[ExcludeFromCodeCoverage]
+public partial class Program { }
