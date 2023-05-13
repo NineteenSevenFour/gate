@@ -4,9 +4,13 @@ using FluentValidation.AspNetCore;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 
 using Microsoft.OpenApi.Models;
+using NineteenSevenFour.Gatehub.Domain.Entities;
+using NineteenSevenFour.Gatehub.Domain.Interfaces.Repository;
+using NineteenSevenFour.Gatehub.Domain.Interfaces.Services;
+using NineteenSevenFour.Gatehub.Domain.Models;
+using NineteenSevenFour.Gatehub.EFCore.Repositories;
+using NineteenSevenFour.Gatehub.EFCore.Services;
 
-using NineteenSevenFour.Gatehub.Domain.Interfaces;
-using NineteenSevenFour.Gatehub.EFCore.SQLite.Services;
 using Swashbuckle.AspNetCore.Filters;
 
 using System.Diagnostics.CodeAnalysis;
@@ -21,7 +25,10 @@ var SwaggerDocName = "Gatehub api documentation";
 WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IService<GateApplicationMetadataModel, GateApplicationMetadataEntity>, ApplicationService>();
+
+// Add repository to the container.
+builder.Services.AddScoped<IRepository<GateApplicationMetadataEntity>, ApplicationRepository>();
 
 //TODO: Review those services
 //builder.Services.AddHealthChecks();

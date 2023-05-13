@@ -1,9 +1,9 @@
 using Moq;
-using NineteenSevenFour.Gatehub.EFCore.SQLite.Services;
+using NineteenSevenFour.Gatehub.EFCore.Repositories;
 
-namespace NineteenSevenFour.Gatehub.EFCore.SQLite.Test.Services;
+namespace NineteenSevenFour.Gatehub.EFCore.SQLite.Test.Repositories;
 
-public class ApplicationServiceTests
+public class ApplicationRepositoryTests
 {
   [SetUp]
   public void Setup()
@@ -14,7 +14,7 @@ public class ApplicationServiceTests
   public void GetAll_ShouldReturn_AnEmptyListOf_WhenNoAppRegistered()
   {
     // Arrange
-    var service = new Mock<ApplicationService>().Object;
+    var service = new Mock<ApplicationRepository>().Object;
 
     // Act
     var results = service.GetAll();

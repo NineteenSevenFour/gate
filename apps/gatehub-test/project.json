@@ -24,7 +24,8 @@
       "executor": "@nx-dotnet/core:test",
       "options": {
         "collect": "XPlat Code Coverage",
-        "resultsDirectory": "../../testresults/gatehub"
+        "resultsDirectory": "../../testresults",
+        "settings": "../../coverlet.runsettings"
       }
     },
     "lint": {

@@ -1,5 +1,14 @@
 {
     "dotnet-test-explorer.runInParallel": true,
-    "dotnet-test-explorer.testArguments": " --collect:\"XPlat Code Coverage\"",
-    "dotnet-test-explorer.testProjectPath": "**/*.Test.csproj"
+    "dotnet-test-explorer.testArguments": " --collect:\"XPlat Code Coverage\"  --settings coverlet.runsettings",
+    "dotnet-test-explorer.testProjectPath": "**/*.Test.csproj",
+    "coverage-gutters.coverageFileNames": [
+      "lcov.info",
+      "cov.xml",
+      "coverage.xml",
+      "jacoco.xml",
+      "coverage.cobertura.xml"
+    ],
+    "dotnet-test-explorer.autoExpandTree": true,
+    "dotnet-test-explorer.pathForResultFile": ""
 }

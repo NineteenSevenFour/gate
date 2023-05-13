@@ -23,7 +23,11 @@
     },
     "test": {
       "executor": "@nx-dotnet/core:test",
-      "options": {}
+      "options": {
+        "collect": "XPlat Code Coverage",
+        "resultsDirectory": "../../testresults",
+        "settings": "../../coverlet.runsettings"
+      }
     },
     "lint": {
       "executor": "@nx-dotnet/core:format"

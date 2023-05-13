@@ -6,7 +6,7 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 /// GATE application metadata model
 /// </summary>
 [ExcludeFromCodeCoverage]
-public class GateApplicationMetadata : ModelBase
+public class GateApplicationMetadataModel : BaseModel
 {
   /// <summary>
   /// Name of the GATE application, must be unique across all application

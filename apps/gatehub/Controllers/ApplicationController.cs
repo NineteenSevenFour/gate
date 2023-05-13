@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-
-using NineteenSevenFour.Gatehub.Domain.Exceptions;
-using NineteenSevenFour.Gatehub.Domain.Interfaces;
+using NineteenSevenFour.Gatehub.Domain.Entities;
+using NineteenSevenFour.Gatehub.Domain.Interfaces.Services;
 using NineteenSevenFour.Gatehub.Domain.Models;
 
 namespace NineteenSevenFour.Gatehub.Controllers;
 
 /// <summary>
-/// Application endpoint to un/register or list GATE application 
+/// Application endpoint to un/register or list GATE application
 /// </summary>
 [ApiController]
 [Route("[controller]")]
@@ -17,14 +16,14 @@ namespace NineteenSevenFour.Gatehub.Controllers;
 public class ApplicationController : ControllerBase
 {
   private readonly ILogger<ApplicationController> logger;
-  private readonly IApplicationService applicationService;
+  private readonly IService<GateApplicationMetadataModel, GateApplicationMetadataEntity> applicationService;
 
   /// <summary>
   /// Constructor of the application endpoint controller.
   /// </summary>
   /// <param name="logger">The application logging service</param>
   /// <param name="applicationService">The GATE application management service</param>
-  public ApplicationController(ILogger<ApplicationController> logger, IApplicationService applicationService)
+  public ApplicationController(ILogger<ApplicationController> logger, IService<GateApplicationMetadataModel, GateApplicationMetadataEntity> applicationService)
   {
     this.logger = logger;
     this.applicationService = applicationService;
@@ -36,7 +35,7 @@ public class ApplicationController : ControllerBase
   /// <returns>A list of GATE applictions</returns>
   [HttpGet()]
   [Route("List")]
-  [ProducesResponseType(typeof(GateApplicationMetadata[]), StatusCodes.Status200OK)]
+  [ProducesResponseType(typeof(GateApplicationMetadataModel[]), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
   public IActionResult List()
   {

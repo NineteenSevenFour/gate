@@ -6,7 +6,7 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 /// Abstract base model
 /// </summary>
 [ExcludeFromCodeCoverage]
-public abstract class ModelBase
+public abstract class BaseModel
 {
   /// <summary>
   /// Model instance ID
