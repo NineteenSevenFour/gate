@@ -4,7 +4,7 @@ using AutoMapper.EquivalencyExpression;
 using NineteenSevenFour.Gatehub.Domain.Entities;
 using NineteenSevenFour.Gatehub.Domain.Models;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Context.MappingProfile
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context.MappingProfile
 {
   public partial class GateApplicationMetadataMappingProfile : Profile
   {

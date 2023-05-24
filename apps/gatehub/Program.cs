@@ -13,8 +13,8 @@ using NineteenSevenFour.Gatehub.Domain.Entities;
 using NineteenSevenFour.Gatehub.Domain.Interfaces;
 using NineteenSevenFour.Gatehub.Domain.Models;
 using NineteenSevenFour.Gatehub.Business.Services;
-using NineteenSevenFour.Gatehub.Data.sqlite.Context;
-using NineteenSevenFour.Gatehub.Data.sqlite.Repositories;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Context;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Repositories;
 
 using Swashbuckle.AspNetCore.Filters;
 

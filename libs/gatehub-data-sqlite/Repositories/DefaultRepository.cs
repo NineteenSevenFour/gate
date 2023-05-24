@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using NineteenSevenFour.Gatehub.Data.sqlite.Context;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Context;
 using NineteenSevenFour.Gatehub.Domain.Entities;
 using NineteenSevenFour.Gatehub.Domain.Interfaces;
 
 using System.Linq.Expressions;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Repositories
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Repositories
 {
   public class DefaultRepository<TEntity> : IDefaultRepository<TEntity> where TEntity : BaseEntity
   {

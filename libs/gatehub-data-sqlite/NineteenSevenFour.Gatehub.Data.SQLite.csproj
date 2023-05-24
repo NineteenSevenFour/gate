@@ -4,8 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>NineteenSevenFour.Gatehub.Data.sqlite</AssemblyName>
-    <RootNamespace>NineteenSevenFour.Gatehub.Data.sqlite</RootNamespace>
+    <AssemblyName>NineteenSevenFour.Gatehub.Data.Sqlite</AssemblyName>
+    <RootNamespace>NineteenSevenFour.Gatehub.Data.Sqlite</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

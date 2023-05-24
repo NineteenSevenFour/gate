@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Migrations
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Migrations
 {
   /// <inheritdoc />
   public partial class InitialCreate : Migration

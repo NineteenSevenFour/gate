@@ -4,7 +4,7 @@ using NineteenSevenFour.Gatehub.Domain.Entities;
 
 using System.Reflection;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Context
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
 {
   /// <summary>
   /// SQLite DBContext for GATEHUB Api

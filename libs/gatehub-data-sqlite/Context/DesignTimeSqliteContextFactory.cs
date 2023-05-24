@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Design;
 
 using System.CommandLine;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Context
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
 {
   public class DesignTimeSqliteContextFactory : IDesignTimeDbContextFactory<SqliteDbContext>
   {

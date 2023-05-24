@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using NineteenSevenFour.Gatehub.Domain.Entities;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Context.Configurations
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context.Configurations
 {
   public sealed class GateApplicationMetadataConfiguration : IEntityTypeConfiguration<GateApplicationMetadataEntity>
   {

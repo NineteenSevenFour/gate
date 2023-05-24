@@ -7,8 +7,8 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <AssemblyName>NineteenSevenFour.Gatehub.Data.sqlite.Test</AssemblyName>
-    <RootNamespace>NineteenSevenFour.Gatehub.Data.sqlite.Test</RootNamespace>
+    <AssemblyName>NineteenSevenFour.Gatehub.Data.Sqlite.Test</AssemblyName>
+    <RootNamespace>NineteenSevenFour.Gatehub.Data.Sqlite.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
     <ProjectReference Include="..\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj" />
-    <ProjectReference Include="..\gatehub-data-sqlite\NineteenSevenFour.Gatehub.Data.sqlite.csproj" />
+    <ProjectReference Include="..\gatehub-data-sqlite\NineteenSevenFour.Gatehub.Data.Sqlite.csproj" />
   </ItemGroup>
 
 </Project>

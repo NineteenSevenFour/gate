@@ -6,10 +6,10 @@ using Microsoft.Extensions.Logging;
 using Moq;
 
 using NineteenSevenFour.Gatehub.Domain.Entities;
-using NineteenSevenFour.Gatehub.Data.sqlite.Repositories;
-using NineteenSevenFour.Gatehub.Data.sqlite.Context;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Repositories;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Context;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Test.Repositories;
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Test.Repositories;
 
 public class DefaultRepositoryTests
 {

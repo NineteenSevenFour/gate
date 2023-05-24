@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NineteenSevenFour.Gatehub.Data.sqlite.Context;
+using NineteenSevenFour.Gatehub.Data.Sqlite.Context;
 
 #nullable disable
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Migrations
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteDbContext))]
     partial class SqliteDbContextModelSnapshot : ModelSnapshot

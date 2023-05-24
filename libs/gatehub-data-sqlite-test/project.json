@@ -1,5 +1,5 @@
 {
-  "name": "NineteenSevenFour.Gatehub.Data.sqlite.Test",
+  "name": "NineteenSevenFour.Gatehub.Data.Sqlite.Test",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/gatehub-data-sqlite-test",
@@ -34,5 +34,5 @@
     }
   },
   "tags": ["scope:api", "type:test"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Data.sqlite"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Data.Sqlite"]
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace NineteenSevenFour.Gatehub.Data.sqlite.Context
+namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
 {
   public static class SqliteDbContextExtension
   {

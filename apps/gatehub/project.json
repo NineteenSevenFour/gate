@@ -45,5 +45,5 @@
     }
   },
   "tags": ["scope:api", "type:app"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.Business", "NineteenSevenFour.Gatehub.Data.sqlite"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.Business", "NineteenSevenFour.Gatehub.Data.Sqlite"]
 }
