@@ -29,8 +29,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
-    <ProjectReference Include="..\..\libs\gatehub-efcore-sqlite\NineteenSevenFour.Gatehub.EFCore.SQLite.csproj" />
-    <ProjectReference Include="..\..\libs\gatehub-efcore\NineteenSevenFour.Gatehub.EFCore.csproj" />
+    <ProjectReference Include="..\..\libs\gatehub-data-sqlite\NineteenSevenFour.Gatehub.Data.sqlite.csproj" />
+    <ProjectReference Include="..\..\libs\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj" />
   </ItemGroup>
 
 </Project>

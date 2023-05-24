@@ -4,8 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>NineteenSevenFour.Gatehub.EFCore.SQLite</AssemblyName>
-    <RootNamespace>NineteenSevenFour.Gatehub.EFCore.SQLite</RootNamespace>
+    <AssemblyName>NineteenSevenFour.Gatehub.Business</AssemblyName>
+    <RootNamespace>NineteenSevenFour.Gatehub.Business</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,11 +29,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
-    <ProjectReference Include="..\gatehub-efcore\NineteenSevenFour.Gatehub.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

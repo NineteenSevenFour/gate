@@ -4,7 +4,8 @@
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 [ -z "$FILES" ] && exit 0
 
-nx affected --target=lint
+## deactivated for apps due to netsdk 7 being broken and fils to load Codenalyzer
+nx affected --target=lint --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test
 nx affected --target=format
 nx affected --target=test
 

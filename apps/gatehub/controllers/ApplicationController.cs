@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using NineteenSevenFour.Gatehub.Domain.Entities;
-using NineteenSevenFour.Gatehub.Domain.Interfaces.Services;
+
+using NineteenSevenFour.Gatehub.Domain.Interfaces;
 using NineteenSevenFour.Gatehub.Domain.Models;
 
 namespace NineteenSevenFour.Gatehub.Controllers;
@@ -16,14 +16,14 @@ namespace NineteenSevenFour.Gatehub.Controllers;
 public class ApplicationController : ControllerBase
 {
   private readonly ILogger<ApplicationController> logger;
-  private readonly IService<GateApplicationMetadataModel, GateApplicationMetadataEntity> applicationService;
+  private readonly IDefaultService<GateApplicationMetadataModel> applicationService;
 
   /// <summary>
   /// Constructor of the application endpoint controller.
   /// </summary>
   /// <param name="logger">The application logging service</param>
   /// <param name="applicationService">The GATE application management service</param>
-  public ApplicationController(ILogger<ApplicationController> logger, IService<GateApplicationMetadataModel, GateApplicationMetadataEntity> applicationService)
+  public ApplicationController(ILogger<ApplicationController> logger, IDefaultService<GateApplicationMetadataModel> applicationService)
   {
     this.logger = logger;
     this.applicationService = applicationService;

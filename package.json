@@ -32,17 +32,24 @@
   "private": true,
   "scripts": {
     "prepare": "git config core.ignorecase false && husky install",
-    "lint": "nx run-many --target=lint",
-    "lint:fix": "nx run-many --target=lint --fix",
+    "lint": "nx run-many --target=lint --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
+    "lint:fix": "nx run-many --target=lint --fix --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
     "format": "nx run-many --target=format",
     "format:fix": "nx run-many --target=format --fix",
+    "pretest": "rimraf testresults",
     "test": "nx run-many --target=test",
+    "checks": "npm run lint:fix && npm run format:fix && npm run test",
+    "prebuild": "npm run pretest && rimraf -g dist **/obj",
     "build": "nx run-many --target=build",
     "serve": "concurrently npm:serve:*",
     "serve:api":"nx run NineteenSevenFour.Gatehub:serve",
     "graph": "nx graph --wtch",
     "sync-nuget-pkg": "npx nx g @nx-dotnet/core:sync",
-    "reset": "nx reset"
+    "reset": "npm cache verify && dotnet nuget locals all --clear && npx nx reset",
+    "setup": "npm ci && dotnet restore && dotnet tool restore",
+    "postsetup": "concurrently npm:migration:*",
+    "migration:clean": "rimraf gatehub.db",
+    "migration:run": "dotnet ef database update -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite --connection \"Data Source=gatehub.db\""
   },
   "dependencies": {
     "tslib": "^2.3.0"

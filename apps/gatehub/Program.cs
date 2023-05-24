@@ -1,15 +1,20 @@
+using AutoMapper;
+using AutoMapper.EquivalencyExpression;
+using AutoMapper.Extensions.ExpressionMapping;
+
 using FluentValidation;
 using FluentValidation.AspNetCore;
 
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 
 using Microsoft.OpenApi.Models;
+
 using NineteenSevenFour.Gatehub.Domain.Entities;
-using NineteenSevenFour.Gatehub.Domain.Interfaces.Repository;
-using NineteenSevenFour.Gatehub.Domain.Interfaces.Services;
+using NineteenSevenFour.Gatehub.Domain.Interfaces;
 using NineteenSevenFour.Gatehub.Domain.Models;
-using NineteenSevenFour.Gatehub.EFCore.Repositories;
-using NineteenSevenFour.Gatehub.EFCore.Services;
+using NineteenSevenFour.Gatehub.Business.Services;
+using NineteenSevenFour.Gatehub.Data.sqlite.Context;
+using NineteenSevenFour.Gatehub.Data.sqlite.Repositories;
 
 using Swashbuckle.AspNetCore.Filters;
 
@@ -22,13 +27,39 @@ using Unchase.Swashbuckle.AspNetCore.Extensions.Extensions;
 var CorsPolicyName = "Gatehub security policy";
 var SwaggerDocName = "Gatehub api documentation";
 
-WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration; // allows both to access and to set up the config
+var environment = builder.Environment;
 
-// Add services to the container.
-builder.Services.AddScoped<IService<GateApplicationMetadataModel, GateApplicationMetadataEntity>, ApplicationService>();
+if (!Enum.TryParse(configuration["Logging:LogLevel:Default"], out LogLevel logLevel))
+{
+  logLevel = LogLevel.Information;
+}
+var loggerFactory = LoggerFactory.Create(b => b.AddConsole().AddFilter("", logLevel));
+
+builder.Services.AddSqliteDbFactory(configuration);
+
+builder.Services.AddAutoMapper(
+    cfg =>
+    {
+      // Auto register all mapping Profiles
+      cfg.AddMaps(AppDomain.CurrentDomain.GetAssemblies());
+      // Configure Collection mapping
+      cfg.AllowNullCollections = true;
+      cfg.AddCollectionMappers();
+      cfg.UseEntityFrameworkCoreModel<SqliteDbContext>(builder.Services);
+      // configure LINQ query on mapping
+      cfg.AddExpressionMapping();
+    }
+);
+
+// Add services to the container. Having both model and entity as generic types allow
+// to use AutoMapper out-of-the-box with generic one-to-one mapping.
+// More advanced mapping will requires custom Service, Repository and eventually UnitOfWork
+builder.Services.AddScoped<IDefaultService<GateApplicationMetadataModel>, DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>>();
 
 // Add repository to the container.
-builder.Services.AddScoped<IRepository<GateApplicationMetadataEntity>, ApplicationRepository>();
+builder.Services.AddScoped(typeof(IDefaultRepository<>), typeof(DefaultRepository<>));
 
 //TODO: Review those services
 //builder.Services.AddHealthChecks();
@@ -104,10 +135,9 @@ WebApplication? app = builder.Build();
 app.MapSwagger();
 app.UseSwagger();
 
-if (app.Environment.IsDevelopment())
+if (environment.IsDevelopment())
 {
   app.UseDeveloperExceptionPage();
-
   app.UseSwaggerUI(c =>
   {
     c.SwaggerEndpoint("./v1/swagger.json", SwaggerDocName);

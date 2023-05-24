@@ -7,8 +7,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 
 using NineteenSevenFour.Gatehub.Controllers;
-using NineteenSevenFour.Gatehub.Domain.Entities;
-using NineteenSevenFour.Gatehub.Domain.Interfaces.Services;
+using NineteenSevenFour.Gatehub.Domain.Interfaces;
 using NineteenSevenFour.Gatehub.Domain.Models;
 
 namespace NineteenSevenFour.Gatehub.Tests.Controllers;
@@ -25,7 +24,7 @@ public class ApplicationControllerTests
   {
     // Arrange
     var logger = new Mock<ILogger<ApplicationController>>().Object;
-    var service = new Mock<IService<GateApplicationMetadataModel, GateApplicationMetadataEntity>>().Object;
+    var service = new Mock<IDefaultService<GateApplicationMetadataModel>>().Object;
     var controller = new ApplicationController(logger, service);
 
     // Act
@@ -43,7 +42,7 @@ public class ApplicationControllerTests
     // Arrange
     var errorMessage = "Expected exception from moq";
     var logger = new Mock<ILogger<ApplicationController>>().Object;
-    var service = new Mock<IService<GateApplicationMetadataModel, GateApplicationMetadataEntity>>();
+    var service = new Mock<IDefaultService<GateApplicationMetadataModel>>();
 
     service.Setup(item => item.GetAll())
            .Throws(new Exception(errorMessage));

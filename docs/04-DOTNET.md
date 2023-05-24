@@ -18,9 +18,23 @@ npx nx g @nx-dotnet/core:app gatehub --pathScheme dotnet --template webapi --tes
 ```bash
 npx nx g @nx-dotnet/core:library gatehub-domain --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile nineteensevenfour.sln
 
-npx nx g @nx-dotnet/core:library gatehub-efcore --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile nineteensevenfour.sln
+npx nx g @nx-dotnet/core:library gatehub-business --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile nineteensevenfour.sln
 
-npx nx g @nx-dotnet/core:library gatehub-efcore-sqllite --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile nineteensevenfour.sln
+npx nx g @nx-dotnet/core:library gatehub-business-sqllite --pathScheme dotnet --template classlib --test-template nunit --language C# --solutionFile nineteensevenfour.sln
+```
+
+## EFCore
+
+!!! IMPORTANT !!! net7.0.302 is broken
+
+- can't run dotnet format
+
+- There seems to be existing issues between nx-dotnet and EFCore that prevent running dotnet ef commands.
+
+```bash
+dotnet ef migrations add InitialCreate -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite
+
+dotnet ef database update -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite --connection "Data Source=gatehub.db"
 ```
 
 ## Powered by

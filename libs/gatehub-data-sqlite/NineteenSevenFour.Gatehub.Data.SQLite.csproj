@@ -4,8 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>NineteenSevenFour.Gatehub.EFCore</AssemblyName>
-    <RootNamespace>NineteenSevenFour.Gatehub.EFCore</RootNamespace>
+    <AssemblyName>NineteenSevenFour.Gatehub.Data.sqlite</AssemblyName>
+    <RootNamespace>NineteenSevenFour.Gatehub.Data.sqlite</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,15 +18,23 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
+    <ProjectReference Include="..\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Context\Validation\" />
   </ItemGroup>
 
 </Project>

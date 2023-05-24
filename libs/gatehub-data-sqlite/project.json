@@ -1,14 +1,14 @@
 {
-  "name": "NineteenSevenFour.Gatehub.EFCore",
+  "name": "NineteenSevenFour.Gatehub.Data.sqlite",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/gatehub-efcore",
+  "sourceRoot": "libs/gatehub-data-sqlite",
   "targets": {
     "build": {
       "executor": "@nx-dotnet/core:build",
       "outputs": [
-        "{workspaceRoot}/dist/libs/gatehub-efcore",
-        "{workspaceRoot}/dist/intermediates/libs/gatehub-efcore"
+        "{workspaceRoot}/dist/libs/gatehub-data-sqlite",
+        "{workspaceRoot}/dist/intermediates/libs/gatehub-data-sqlite"
       ],
       "options": {
         "configuration": "Debug",
@@ -26,5 +26,5 @@
     }
   },
   "tags": ["scope:api", "type:lib"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain"]
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.Business"]
 }

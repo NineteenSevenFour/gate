@@ -1,5 +1,5 @@
-<!-- 
-  This file is imported early in the build order. 
+<!--
+  This file is imported early in the build order.
   Use it to set default property values that can be overridden in specific projects.
 -->
 <Project>
@@ -7,13 +7,17 @@
     <!-- Output path configuration -->
     <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</RepoRoot>
     <ProjectRelativePath>$([MSBuild]::MakeRelative($(RepoRoot), $(MSBuildProjectDirectory)))</ProjectRelativePath>
+
+    <!--https://github.com/nx-dotnet/nx-dotnet/discussions/673-->
     <BaseOutputPath>$(RepoRoot)dist/$(ProjectRelativePath)</BaseOutputPath>
     <OutputPath>$(BaseOutputPath)</OutputPath>
-    <BaseIntermediateOutputPath>$(RepoRoot)dist/intermediates/$(ProjectRelativePath)/obj</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <!--<BaseIntermediateOutputPath>$(RepoRoot)dist/intermediates/$(ProjectRelativePath)/obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>-->
+
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+    <EnforceCodeStyleInBuild >false</EnforceCodeStyleInBuild>
   </PropertyGroup>
 </Project>
