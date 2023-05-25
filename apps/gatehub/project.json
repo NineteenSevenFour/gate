@@ -32,7 +32,7 @@
         }
       }
     },
-    "lint": {
+    "lint_deactivated_due_to_net7_bug": {
       "executor": "@nx-dotnet/core:format"
     },
     "swagger": {
