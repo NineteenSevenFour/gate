@@ -28,7 +28,7 @@
         "settings": "../../coverlet.runsettings"
       }
     },
-    "lint_deactivated_due_to_net7_bug": {
+    "lint": {
       "executor": "@nx-dotnet/core:format"
     }
   },
