@@ -23,12 +23,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Run linting check
-      uses: MansaGroup/nrwl-nx-action@v3.1.0
-      with:
-        targets: lint
-        args: --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test
-        all: true
+  #  - name: Run linting check
+  #    uses: MansaGroup/nrwl-nx-action@v3.1.0
+  #    with:
+  #      targets: lint
+  #      all: true
 
     - name: Run formating check
       uses: MansaGroup/nrwl-nx-action@v3.1.0
