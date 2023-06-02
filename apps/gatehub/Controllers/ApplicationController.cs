@@ -49,4 +49,44 @@ public class ApplicationController : ControllerBase
       return Problem(detail: string.Format("{0}", ex.Message), statusCode: StatusCodes.Status500InternalServerError);
     }
   }
+
+  /// <summary>
+  /// Endpoint to register a GATE application
+  /// </summary>
+  [HttpPost()]
+  [Route("register")]
+  [ProducesResponseType(typeof(GateApplicationMetadataModel), StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+  public async Task<IActionResult> Register(GateApplicationMetadataModel application)
+  {
+    try
+    {
+      return Ok(await this.applicationService.AddAsync(application));
+    }
+    catch (Exception ex)
+    {
+      logger.LogError(ex, "{message}", ex.Message);
+      return Problem(detail: string.Format("{0}", ex.Message), statusCode: StatusCodes.Status500InternalServerError);
+    }
+  }
+
+  /// <summary>
+  /// Endpoint to unregister a GATE application
+  /// </summary>
+  [HttpPost()]
+  [Route("{id}/unregister")]
+  [ProducesResponseType(StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+  public async Task<IActionResult> Unregister(int id)
+  {
+    try
+    {
+      return Ok(await this.applicationService.RemoveAsync(id));
+    }
+    catch (Exception ex)
+    {
+      logger.LogError(ex, "{message}", ex.Message);
+      return Problem(detail: string.Format("{0}", ex.Message), statusCode: StatusCodes.Status500InternalServerError);
+    }
+  }
 }

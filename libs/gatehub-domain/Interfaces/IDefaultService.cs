@@ -7,19 +7,19 @@ namespace NineteenSevenFour.Gatehub.Domain.Interfaces;
 public interface IDefaultService<TModel>
   where TModel : BaseModel
 {
-  Task Add(TModel entity);
+  Task<TModel> AddAsync(TModel model);
 
-  Task AddRange(IEnumerable<TModel> entities);
+  Task<int> AddRangeAsync(IEnumerable<TModel> models);
 
-  Task Update(TModel entity);
+  Task<TModel> UpdateAsync(TModel model);
 
-  Task<TModel> GetById(int id);
+  Task<TModel?> GetByIdAsync(int id);
 
   IQueryable<TModel> GetAll();
 
   IQueryable<TModel> Find(Expression<Func<TModel, bool>> expression);
 
-  Task Remove(TModel entity);
+  Task<int> RemoveAsync(int id);
 
-  Task RemoveRange(IEnumerable<TModel> entities);
+  Task<int> RemoveRangeAsync(IEnumerable<TModel> models);
 }

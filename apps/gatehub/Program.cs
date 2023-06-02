@@ -137,7 +137,7 @@ app.UseSwagger();
 
 if (environment.IsDevelopment())
 {
-  app.UseDeveloperExceptionPage();
+  app.UseExceptionHandler("/error-development");
   app.UseSwaggerUI(c =>
   {
     c.SwaggerEndpoint("./v1/swagger.json", SwaggerDocName);
@@ -146,6 +146,7 @@ if (environment.IsDevelopment())
 }
 else
 {
+  app.UseExceptionHandler("/error");
   app.UseReDoc(c =>
   {
     c.DocumentTitle = SwaggerDocName;

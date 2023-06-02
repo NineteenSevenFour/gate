@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineteenSevenFour.Gatehub.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineteenSevenFour.Gatehub.Business", "libs\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj", "{FBB1A10E-BFFC-4D3E-8A46-090E3D5391F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineteenSevenFour.Gatehub.Business.Test", "libs\gatehub-business.test\NineteenSevenFour.Gatehub.Business.Test.csproj", "{AFA5752A-EC08-4114-A22B-3F11BEAB1820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NineteenSevenFour.Gatehub.Business.Test", "libs\gatehub-business-test\NineteenSevenFour.Gatehub.Business.Test.csproj", "{AFA5752A-EC08-4114-A22B-3F11BEAB1820}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D06ACD4-68EA-4DC9-9F00-2E6958AB3D44}"
 	ProjectSection(SolutionItems) = preProject

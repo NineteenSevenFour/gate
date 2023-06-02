@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore.Design;
 
 using System.CommandLine;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
 {
+  [ExcludeFromCodeCoverage]
   public class DesignTimeSqliteContextFactory : IDesignTimeDbContextFactory<SqliteDbContext>
   {
     public SqliteDbContext CreateDbContext(string[] args)

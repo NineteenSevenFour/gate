@@ -4,8 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
 {
+  [ExcludeFromCodeCoverage]
   public static class SqliteDbContextExtension
   {
     public static string GetConnectionString(

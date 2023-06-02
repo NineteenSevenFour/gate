@@ -26,17 +26,38 @@ public class DefaultService<TModel, TEntity> : IDefaultService<TModel>
   }
 
   /// <inheritdoc />
-  public virtual Task Add(TModel model)
+  public virtual async Task<TModel> AddAsync(TModel model)
   {
     var entity = mapper.Map<TEntity>(model);
-    return this.repository.Add(entity);
+    var newEntity = await this.repository.AddAsync(entity);
+    return mapper.Map<TModel>(newEntity);
   }
 
   /// <inheritdoc />
-  public virtual Task AddRange(IEnumerable<TModel> models)
+  public virtual async Task<int> AddRangeAsync(IEnumerable<TModel> models)
   {
     var entities = mapper.Map<TEntity[]>(models);
-    return this.repository.AddRange(entities);
+    return await this.repository.AddRangeAsync(entities);
+  }
+
+  /// <inheritdoc />
+  public Task<TModel> UpdateAsync(TModel model)
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <inheritdoc />
+  public virtual async Task<TModel?> GetByIdAsync(int id)
+  {
+    var entity = await this.repository.GetByIdAsync(id);
+    return mapper.Map<TModel>(entity);
+  }
+
+  /// <inheritdoc />
+  public virtual IQueryable<TModel> GetAll()
+  {
+    var entities = this.repository.GetAll();
+    return entities.ProjectTo<TModel>(mapper.ConfigurationProvider);
   }
 
   /// <inheritdoc />
@@ -49,41 +70,15 @@ public class DefaultService<TModel, TEntity> : IDefaultService<TModel>
   }
 
   /// <inheritdoc />
-  public virtual IQueryable<TModel> GetAll()
+  public virtual async Task<int> RemoveAsync(int id)
   {
-    var entities = this.repository.GetAll();
-    var model = entities.ProjectTo<TModel>(mapper.ConfigurationProvider);
-    return (IQueryable<TModel>)model;
+    return await this.repository.RemoveAsync(id);
   }
 
   /// <inheritdoc />
-  public virtual Task<TModel> GetById(int id)
-  {
-    var entity = this.repository.GetById(id);
-    var model = mapper.Map<TModel>(entity);
-    return Task.FromResult(model);
-  }
-
-  /// <inheritdoc />
-  public virtual Task Remove(TModel model)
-  {
-    var entity = mapper.Map<TEntity>(model);
-    return this.repository.Remove(entity);
-  }
-
-  /// <inheritdoc />
-  public virtual Task RemoveRange(IEnumerable<TModel> models)
+  public virtual async Task<int> RemoveRangeAsync(IEnumerable<TModel> models)
   {
     var entities = mapper.Map<TEntity[]>(models);
-    return this.repository.RemoveRange(entities);
-  }
-
-  /// <inheritdoc />
-  public virtual Task Update(TModel model)
-  {
-    var entity = mapper.Map<TEntity>(model);
-    var newEntity = this.repository.Update(entity);
-    var newModel = mapper.Map<TModel>(newEntity);
-    return Task.FromResult(newModel);
+    return await this.repository.RemoveRangeAsync(entities);
   }
 }

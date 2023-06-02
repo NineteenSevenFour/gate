@@ -20,25 +20,38 @@ namespace NineteenSevenFour.Gatehub.Data.Sqlite.Repositories
     }
 
     /// <inheritdoc/>
-    public virtual async Task Add(TEntity entity)
+    public virtual async Task<TEntity> AddAsync(TEntity entity)
     {
-      await context.Set<TEntity>().AddAsync(entity);
-      context.SaveChanges();
+      var result = await context.Set<TEntity>().AddAsync(entity);
+      await context.SaveChangesAsync();
+      return result.Entity;
     }
 
     /// <inheritdoc/>
-    public virtual Task Update(TEntity entity)
-    {
-      context.Set<TEntity>().Update(entity);
-      context.SaveChanges();
-      return Task.CompletedTask;
-    }
-
-    /// <inheritdoc/>
-    public virtual async Task AddRange(IEnumerable<TEntity> entities)
+    public virtual async Task<int> AddRangeAsync(IEnumerable<TEntity> entities)
     {
       await context.Set<TEntity>().AddRangeAsync(entities);
-      context.SaveChanges();
+      return await context.SaveChangesAsync();
+    }
+
+    /// <inheritdoc/>
+    public virtual async Task<TEntity> UpdateAsync(TEntity entity)
+    {
+      var result = context.Set<TEntity>().Update(entity);
+      await context.SaveChangesAsync();
+      return result.Entity;
+    }
+
+    /// <inheritdoc/>
+    public virtual async Task<TEntity?> GetByIdAsync(int id)
+    {
+      return await context.Set<TEntity>().FindAsync(id);
+    }
+
+    /// <inheritdoc/>
+    public virtual IQueryable<TEntity> GetAll()
+    {
+      return context.Set<TEntity>();
     }
 
     /// <inheritdoc/>
@@ -53,30 +66,20 @@ namespace NineteenSevenFour.Gatehub.Data.Sqlite.Repositories
     }
 
     /// <inheritdoc/>
-    public virtual IQueryable<TEntity> GetAll()
+    public virtual async Task<int> RemoveAsync(int id)
     {
-      return context.Set<TEntity>();
-    }
-
-    /// <inheritdoc/>
-    public virtual async Task<TEntity?> GetById(int id)
-    {
-      return await context.Set<TEntity>().FindAsync(id);
-    }
-
-    /// <inheritdoc/>
-    public virtual Task Remove(TEntity entity)
-    {
+      var entity = await this.Find((e) => e.Id == id)
+                             .AsNoTracking()
+                             .FirstOrDefaultAsync() ?? throw new ArgumentOutOfRangeException($"No entity with Id {id} could be found.");
       context.Set<TEntity>().Remove(entity);
-      context.SaveChanges();
-      return Task.CompletedTask;
+      return await context.SaveChangesAsync();
     }
 
     /// <inheritdoc/>
-    public virtual Task RemoveRange(IEnumerable<TEntity> entities)
+    public virtual async Task<int> RemoveRangeAsync(IEnumerable<TEntity> entities)
     {
       context.Set<TEntity>().RemoveRange(entities);
-      return Task.CompletedTask;
+      return await context.SaveChangesAsync();
     }
   }
 }

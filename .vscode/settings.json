@@ -1,7 +1,7 @@
 {
     "dotnet-test-explorer.runInParallel": true,
     "dotnet-test-explorer.testArguments": " --collect:\"XPlat Code Coverage\"  --settings coverlet.runsettings",
-    "dotnet-test-explorer.testProjectPath": "**/*.Test.csproj",
+    "dotnet-test-explorer.testProjectPath": "**/*-test/*.Test.csproj",
     "coverage-gutters.coverageFileNames": [
       "lcov.info",
       "cov.xml",

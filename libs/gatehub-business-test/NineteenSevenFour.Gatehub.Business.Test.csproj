@@ -38,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\gatehub-data-sqlite\NineteenSevenFour.Gatehub.Data.Sqlite.csproj" />
     <ProjectReference Include="..\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
     <ProjectReference Include="..\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj" />
   </ItemGroup>

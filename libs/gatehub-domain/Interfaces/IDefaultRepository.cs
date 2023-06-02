@@ -6,20 +6,19 @@ namespace NineteenSevenFour.Gatehub.Domain.Interfaces;
 
 public interface IDefaultRepository<TEntity> where TEntity : BaseEntity
 {
-  Task Add(TEntity entity);
+  Task<TEntity> AddAsync(TEntity entity);
 
-  Task AddRange(IEnumerable<TEntity> entities);
+  Task<int> AddRangeAsync(IEnumerable<TEntity> entities);
 
-  Task Update(TEntity entity);
+  Task<TEntity> UpdateAsync(TEntity entity);
 
-  Task<TEntity?> GetById(int id);
+  Task<TEntity?> GetByIdAsync(int id);
 
   IQueryable<TEntity> GetAll();
 
   IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
 
-  Task Remove(TEntity entity);
+  Task<int> RemoveAsync(int id);
 
-  Task RemoveRange(IEnumerable<TEntity> entities);
+  Task<int> RemoveRangeAsync(IEnumerable<TEntity> entities);
 }
-

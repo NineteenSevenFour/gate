@@ -26,13 +26,13 @@ public class DefaultRepositoryTests
 
     var logFactoryMoq = new Mock<ILoggerFactory>();
     var contextMoq = new Mock<SqliteDbContext>();
-    var repositoryMock = new Mock<DefaultRepository<GateApplicationMetadataEntity>>(logFactoryMoq.Object, contextMoq.Object);
-    repositoryMock
+    var repositoryMoq = new Mock<DefaultRepository<GateApplicationMetadataEntity>>(logFactoryMoq.Object, contextMoq.Object);
+    repositoryMoq
       .Setup((r) => r.GetAll())
       .Returns(expectedResult);
 
     // Act
-    var results = repositoryMock.Object.GetAll();
+    var results = repositoryMoq.Object.GetAll();
 
     // Assert
     Assert.That(results, Is.Not.Null);
