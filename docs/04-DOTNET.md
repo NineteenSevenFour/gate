@@ -32,6 +32,8 @@ npx nx g @nx-dotnet/core:library gatehub-business-sqllite --pathScheme dotnet --
 - There seems to be existing issues between nx-dotnet and EFCore that prevent running dotnet ef commands.
 
 ```bash
+dotnet tool restore
+
 dotnet ef migrations add InitialCreate -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite
 
 dotnet ef database update -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite --connection "Data Source=gatehub.db"

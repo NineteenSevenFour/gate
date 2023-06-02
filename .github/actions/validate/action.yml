@@ -40,6 +40,7 @@ runs:
       with:
         targets: test
         all: true
+        parallel: 1
 
     - name: Report coverage (files)
       uses: codecov/codecov-action@v3
