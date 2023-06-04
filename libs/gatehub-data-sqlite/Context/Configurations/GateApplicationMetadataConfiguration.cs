@@ -3,8 +3,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using NineteenSevenFour.Gatehub.Domain.Entities;
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context.Configurations
 {
+  /// <summary>
+  /// Implement GateApplicationMetadata Entity Configuration.
+  /// </summary>
+  [ExcludeFromCodeCoverage]
   public sealed class GateApplicationMetadataConfiguration : IEntityTypeConfiguration<GateApplicationMetadataEntity>
   {
     public void Configure(EntityTypeBuilder<GateApplicationMetadataEntity> entityBuilder)

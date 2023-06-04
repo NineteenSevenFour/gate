@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Context\Validation\**" />
+    <EmbeddedResource Remove="Context\Validation\**" />
+    <None Remove="Context\Validation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.5" />
@@ -31,10 +37,6 @@
   <ItemGroup>
     <ProjectReference Include="..\gatehub-domain\NineteenSevenFour.Gatehub.Domain.csproj" />
     <ProjectReference Include="..\gatehub-business\NineteenSevenFour.Gatehub.Business.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Context\Validation\" />
   </ItemGroup>
 
 </Project>

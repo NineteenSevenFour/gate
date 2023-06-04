@@ -38,5 +38,4 @@ public class ErrorController : ControllerBase
         detail: exceptionHandlerFeature.Error.StackTrace,
         title: exceptionHandlerFeature.Error.Message);
   }
-
 }

@@ -10,6 +10,7 @@ using NineteenSevenFour.Gatehub.Domain.Models;
 using NineteenSevenFour.Gatehub.Business.Services;
 using AutoMapper;
 using NineteenSevenFour.Gatehub.Data.Sqlite.Context.MappingProfile;
+using System.Linq.Expressions;
 
 namespace NineteenSevenFour.Gatehub.Business.Test.Services;
 
@@ -21,7 +22,7 @@ public class DefaultServiceTests
   }
 
   [Test]
-  public void GetAll_ShouldReturn_AnEmptyList_WhenNoApplicationAreRegistered()
+  public void GetAllShouldReturnAnEmptyListWhenNoApplicationAreRegistered()
   {
     // Arrange
     GateApplicationMetadataEntity[] entities = Array.Empty<GateApplicationMetadataEntity>();
@@ -49,7 +50,7 @@ public class DefaultServiceTests
   }
 
   [Test]
-  public void GetAll_ShouldReturn_AListOfApplication_WhenApplicationAreRegistered()
+  public void GetAllShouldReturnAListOfApplicationWhenAtLeastOneApplicationIsRegistered()
   {
     // Arrange
     GateApplicationMetadataEntity[] entities = {
@@ -103,7 +104,7 @@ public class DefaultServiceTests
   }
 
   [Test]
-  public async Task AddAsync_ShouldReturn_AnApplicationModel_WhenApplicationIsRegistered_Succeefuly()
+  public async Task AddAsyncShouldReturnAnApplicationModelWhenSingleApplicationRegistrationSucceed()
   {
     // Arrange
     GateApplicationMetadataEntity savedEntity = new()
@@ -149,7 +150,7 @@ public class DefaultServiceTests
   }
 
   [Test]
-  public async Task AddRangeAsync_ShouldReturn_ACountOfRegisterdApplication_WhenApplicationAreRegistered_Succeefuly()
+  public async Task AddRangeAsyncShouldReturnACountOfRegisterdApplicationWhenMultiApplicationRegistrationSucceed()
   {
     // Arrange
     int savedEntitiesCount = 1;
@@ -180,5 +181,266 @@ public class DefaultServiceTests
 
     // Assert
     results.Should().Be(savedEntitiesCount);
+  }
+
+  [Test]
+  public void UpdateAsyncShouldThrowNotImplementedException()
+  {
+    // Arrange
+    GateApplicationMetadataModel inputModel = new()
+    {
+      Name = "AppOne",
+      Description = "App one",
+      Icon = "Shield"
+    };
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+
+    // Assert
+    Assert.ThrowsAsync<NotImplementedException>(async () => await service.UpdateAsync(inputModel));
+  }
+
+  [Test]
+  public async Task GetByIdAsyncShouldReturnAnApplicationModelWhenIdExists()
+  {
+    // Arrange
+    GateApplicationMetadataEntity entity = new()
+    {
+      Id = 1,
+      Name = "AppOne",
+      Description = "App one",
+      Icon = "Shield"
+    };
+    GateApplicationMetadataModel model = new()
+    {
+      Id = 1,
+      Name = "AppOne",
+      Description = "App one",
+      Icon = "Shield"
+    };
+    int searchedId = 1;
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.GetByIdAsync(It.IsAny<int>()))
+        .ReturnsAsync(entity);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.GetByIdAsync(searchedId);
+
+    // Assert
+    Assert.That(results, Is.Not.Null);
+    results.Should().BeEquivalentTo(model);
+  }
+
+  [Test]
+  public async Task GetByIdAsyncShouldReturnNullWhenIdDoesnNotExists()
+  {
+    // Arrange
+    GateApplicationMetadataEntity? entity = null;
+    int searchedId = 1;
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.GetByIdAsync(It.IsAny<int>()))
+        .ReturnsAsync(entity);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.GetByIdAsync(searchedId);
+
+    // Assert
+    Assert.That(results, Is.Null);
+  }
+
+  [Test]
+  public void FindShouldReturnAnApplicationModelWhenExpressionMatchAnyRegisteredApplication()
+  {
+    // Arrange
+    GateApplicationMetadataEntity[] entities = {
+      new()
+      {
+        Id = 1,
+        Name = "AppOne",
+        Description = "App one",
+        Icon = "Shield"
+      }
+    };
+    GateApplicationMetadataModel[] model = {
+      new()
+      {
+        Id = 1,
+        Name = "AppOne",
+        Description = "App one",
+        Icon = "Shield"
+      }
+    };
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.Find(It.IsAny<Expression<Func<GateApplicationMetadataEntity, bool>>>()))
+        .Returns(entities.AsQueryable());
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = service.Find((model) => model.Id == 1);
+
+    // Assert
+    Assert.That(results, Is.Not.Null);
+    results.Should().BeEquivalentTo(model);
+  }
+
+  [Test]
+  public async Task RemoveAsyncShouldReturnACountOfUnregisterdApplicationWhenSingleUnregistationSucceed()
+  {
+    // Arrange
+    int removedEntitiesCount = 1;
+    int id = 3;
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.RemoveAsync(It.IsAny<int>()))
+        .ReturnsAsync(removedEntitiesCount);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.RemoveAsync(id);
+
+    // Assert
+    results.Should().Be(removedEntitiesCount);
+  }
+
+  [Test]
+  public async Task RemoveAsyncShouldReturnZeroWhenSingleApplicationUnregistrationFails()
+  {
+    // Arrange
+    int removedEntitiesCount = 0;
+    int id = 3;
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.RemoveAsync(It.IsAny<int>()))
+        .ReturnsAsync(removedEntitiesCount);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.RemoveAsync(id);
+
+    // Assert
+    results.Should().Be(removedEntitiesCount);
+  }
+
+  [Test]
+  public async Task RemoveRangeAsyncShouldReturnACountOfUnregisterdApplicationWhenMultiApplicationUnregistrationSucceed()
+  {
+    // Arrange
+    int removedEntitiesCount = 1;
+    GateApplicationMetadataModel[] inputModels = {
+      new()
+      {
+        Name = "AppOne",
+        Description = "App one",
+        Icon = "Shield"
+      }
+    };
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.RemoveRangeAsync(It.IsAny<GateApplicationMetadataEntity[]>()))
+        .ReturnsAsync(removedEntitiesCount);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.RemoveRangeAsync(inputModels);
+
+    // Assert
+    results.Should().Be(removedEntitiesCount);
+  }
+
+  [Test]
+  public async Task RemoveRangeAsyncShouldReturnZeroWhenMultiApplicationUnregistrationFails()
+  {
+    // Arrange
+    int removedEntitiesCount = 0;
+    GateApplicationMetadataModel[] inputModels = {
+      new()
+      {
+        Name = "AppOne",
+        Description = "App one",
+        Icon = "Shield"
+      }
+    };
+
+    var logFactoryMoq = new Mock<ILoggerFactory>();
+    var mapperMoq = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile(new GateApplicationMetadataMappingProfile());
+    });
+    var mapper = mapperMoq.CreateMapper();
+
+    var repositoryMoq = new Mock<IDefaultRepository<GateApplicationMetadataEntity>>();
+    repositoryMoq
+        .Setup((r) => r.RemoveRangeAsync(It.IsAny<GateApplicationMetadataEntity[]>()))
+        .ReturnsAsync(removedEntitiesCount);
+    var service = new DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>(logFactoryMoq.Object, mapper, repositoryMoq.Object);
+
+    // Acts
+    var results = await service.RemoveRangeAsync(inputModels);
+
+    // Assert
+    results.Should().Be(removedEntitiesCount);
   }
 }

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 using NineteenSevenFour.Gatehub.Domain.Entities;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
@@ -9,6 +10,7 @@ namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
   /// <summary>
   /// SQLite DBContext for GATEHUB Api
   /// </summary>
+  [ExcludeFromCodeCoverage]
   public class SqliteDbContext : DbContext
   {
     public DbSet<GateApplicationMetadataEntity>? GateApplicationMetadata { get; set; }

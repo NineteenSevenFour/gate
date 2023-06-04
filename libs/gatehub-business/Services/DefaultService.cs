@@ -65,8 +65,8 @@ public class DefaultService<TModel, TEntity> : IDefaultService<TModel>
   {
     var predicate = this.mapper.Map<Expression<Func<TEntity, bool>>>(expression);
     var entities = this.repository.Find(predicate);
-    var model = entities.ProjectTo<TModel>(mapper.ConfigurationProvider);
-    return (IQueryable<TModel>)model;
+    var models = entities.ProjectTo<TModel>(mapper.ConfigurationProvider);
+    return models;
   }
 
   /// <inheritdoc />
