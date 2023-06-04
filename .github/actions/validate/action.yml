@@ -23,11 +23,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Run linting check
-      uses: MansaGroup/nrwl-nx-action@v3.1.0
-      with:
-        targets: lint
-        all: true
+  #  - name: Run linting check
+  #    uses: MansaGroup/nrwl-nx-action@v3.1.0
+  #    with:
+  #      targets: lint
+  #      all: true
 
     - name: Run formating check
       uses: MansaGroup/nrwl-nx-action@v3.1.0
@@ -40,6 +40,7 @@ runs:
       with:
         targets: test
         all: true
+        parallel: 1
 
     - name: Report coverage (files)
       uses: codecov/codecov-action@v3

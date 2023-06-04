@@ -1,0 +1,38 @@
+{
+  "name": "NineteenSevenFour.Gatehub.Domain.Test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/gatehub-domain-test",
+  "targets": {
+    "build": {
+      "executor": "@nx-dotnet/core:build",
+      "outputs": [
+        "{workspaceRoot}/dist/libs/gatehub-domain-test",
+        "{workspaceRoot}/dist/intermediates/libs/gatehub-domain-test"
+      ],
+      "options": {
+        "configuration": "Debug",
+        "noDependencies": true
+      },
+      "configurations": {
+        "production": {
+          "configuration": "Release",
+          "noDependencies": true
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx-dotnet/core:test",
+      "options": {
+        "collect": "XPlat Code Coverage",
+        "resultsDirectory": "../../testresults",
+        "settings": "../../coverlet.runsettings"
+      }
+    },
+    "lint": {
+      "executor": "@nx-dotnet/core:format"
+    }
+  },
+  "tags": ["scope:api", "type:test"],
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain"]
+}

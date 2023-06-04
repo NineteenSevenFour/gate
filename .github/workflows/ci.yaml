@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        dotnet-version: [6.0.x]
+        dotnet-version: [7.0.x]
 
     steps:
       - name: Checkout all commits
@@ -39,6 +39,7 @@ jobs:
           registry: https://nuget.pkg.github.com # optional / default value
           scope: nineteensevenfour # optional / default value
           gh_token: ${{ secrets.GITHUB_TOKEN }}
+          sln: ./nineteensevenfour.sln
 
       - uses: ./.github/actions/prepareNode
         with:

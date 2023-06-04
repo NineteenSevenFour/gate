@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "gatehub-test",
+  "name": "NineteenSevenFour.Gatehub.Test",
   "projectType": "application",
   "sourceRoot": "apps/gatehub-test",
   "targets": {
@@ -24,12 +24,14 @@
       "executor": "@nx-dotnet/core:test",
       "options": {
         "collect": "XPlat Code Coverage",
-        "resultsDirectory": "../../testresults/gatehub"
+        "resultsDirectory": "../../testresults",
+        "settings": "../../coverlet.runsettings"
       }
     },
     "lint": {
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": []
+  "tags": ["scope:api",  "type:test"],
+  "implicitDependencies": ["NineteenSevenFour.Gatehub"]
 }

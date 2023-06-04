@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/dist/apps/gatehub/net7.0/gatehub.dll",
+            "program": "${workspaceFolder}/dist/apps/gatehub/net7.0/NineteenSevenFour.Gatehub.dll",
             "args": [],
             "cwd": "${workspaceFolder}/apps/gatehub",
             "stopAtEntry": false,
