@@ -1,0 +1,39 @@
+{
+  "name": "@nineteensevenfour/gdk",
+  "version": "0.0.1",
+  "description": "This is the SDK to build GATE applications.",
+  "author": {
+    "email": "bruno.duval@datatunning.com",
+    "name": "Bruno DUVAL"
+  },
+  "keywords": [
+    "portal",
+    "micro-frontend",
+    "typescript",
+    "angular",
+    "nx",
+    "primeng",
+    "storybook"
+  ],
+  "bugs": {
+    "url": "https://github.com/NineteenSevenFour/gate/issues"
+  },
+  "homepage": "https://github.com/NineteenSevenFour/gate/tree/main/libs/gate-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineteenSevenFour/gate.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "allow-same-version": true,
+  "sideEffects": false,
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
