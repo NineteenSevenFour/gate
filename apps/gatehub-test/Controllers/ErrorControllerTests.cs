@@ -15,7 +15,7 @@ using System.Net;
 namespace NineteenSevenFour.Gatehub.Tests.Controllers;
 
 public class ErrorControllerTests
-{ 
+{
   [SetUp]
   public void Setup()
   {
@@ -55,7 +55,7 @@ public class ErrorControllerTests
     // Assert
     var errorObjectResult = actionResult as NotFoundResult;
     Assert.That(errorObjectResult, Is.Not.Null);
-    errorObjectResult.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+    errorObjectResult?.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
   }
 
   [Test]
@@ -87,8 +87,8 @@ public class ErrorControllerTests
     var errorObjectResult = actionResult as ObjectResult;
     Assert.That(errorObjectResult, Is.Not.Null);
 
-    var problemDetail = errorObjectResult.Value as ProblemDetails;
+    var problemDetail = errorObjectResult?.Value as ProblemDetails;
     Assert.That(problemDetail, Is.Not.Null);
-    problemDetail.Title.Should().Be(errorMessage);
+    problemDetail?.Title.Should().Be(errorMessage);
   }
 }

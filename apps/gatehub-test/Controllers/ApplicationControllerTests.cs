@@ -73,10 +73,10 @@ public class ApplicationControllerTests
     // Assert
     var errorObjectResult = actionResult as ObjectResult;
     Assert.That(errorObjectResult, Is.Not.Null);
-    errorObjectResult.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
-    var problemDetail = errorObjectResult.Value as ProblemDetails;
+    errorObjectResult?.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
+    var problemDetail = errorObjectResult?.Value as ProblemDetails;
     Assert.That(problemDetail, Is.Not.Null);
-    problemDetail.Detail.Should().Contain(errorMessage);
+    problemDetail?.Detail.Should().Contain(errorMessage);
   }
 
   [Test]
@@ -108,8 +108,8 @@ public class ApplicationControllerTests
     // Assert
     var okObjectResult = actionResult as ObjectResult;
     Assert.That(okObjectResult, Is.Not.Null);
-    okObjectResult.StatusCode.Should().Be(StatusCodes.Status200OK);
-    okObjectResult.Value.Should().BeEquivalentTo(result);
+    okObjectResult?.StatusCode.Should().Be(StatusCodes.Status200OK);
+    okObjectResult?.Value.Should().BeEquivalentTo(result);
   }
 
   [Test]
@@ -136,10 +136,10 @@ public class ApplicationControllerTests
     // Assert
     var errorObjectResult = await actionResult as ObjectResult;
     Assert.That(errorObjectResult, Is.Not.Null);
-    errorObjectResult.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
-    var problemDetail = errorObjectResult.Value as ProblemDetails;
+    errorObjectResult?.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
+    var problemDetail = errorObjectResult?.Value as ProblemDetails;
     Assert.That(problemDetail, Is.Not.Null);
-    problemDetail.Detail.Should().Contain(errorMessage);
+    problemDetail?.Detail.Should().Contain(errorMessage);
   }
 
   [Test]
@@ -161,8 +161,8 @@ public class ApplicationControllerTests
     // Assert
     var okObjectResult = actionResult as ObjectResult;
     Assert.That(okObjectResult, Is.Not.Null);
-    okObjectResult.StatusCode.Should().Be(StatusCodes.Status200OK);
-    okObjectResult.Value.Should().BeEquivalentTo(result);
+    okObjectResult?.StatusCode.Should().Be(StatusCodes.Status200OK);
+    okObjectResult?.Value.Should().BeEquivalentTo(result);
   }
 
   [Test]
@@ -184,9 +184,9 @@ public class ApplicationControllerTests
     // Assert
     var errorObjectResult = await actionResult as ObjectResult;
     Assert.That(errorObjectResult, Is.Not.Null);
-    errorObjectResult.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
-    var problemDetail = errorObjectResult.Value as ProblemDetails;
+    errorObjectResult?.StatusCode.Should().Be(StatusCodes.Status500InternalServerError);
+    var problemDetail = errorObjectResult?.Value as ProblemDetails;
     Assert.That(problemDetail, Is.Not.Null);
-    problemDetail.Detail.Should().Contain(errorMessage);
+    problemDetail?.Detail.Should().Contain(errorMessage);
   }
 }

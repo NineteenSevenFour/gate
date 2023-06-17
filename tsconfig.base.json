@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": "./",
     "paths": {
+      "@nineteensevenfour/gdk": ["libs/gate-sdk/src/index.ts"],
       "@typings/nineteensevenfour-gatehub": [
         "libs/gatehub-typings/src/index.ts"
       ]
