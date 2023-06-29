@@ -39,7 +39,7 @@
     "build": "nx run-many --target=build",
     "serve": "concurrently npm:serve:*",
     "serve:api": "nx run NineteenSevenFour.Gatehub:serve",
-    "graph": "nx graph --wtch",
+    "graph": "nx graph --watch",
     "sync-nuget-pkg": "npx nx g @nx-dotnet/core:sync",
     "reset": "npm cache verify && dotnet nuget locals all --clear && npx nx reset",
     "setup": "npm ci && dotnet restore && dotnet tool restore",

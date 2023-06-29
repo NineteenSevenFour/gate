@@ -141,6 +141,7 @@ if (environment.IsDevelopment())
   app.UseSwaggerUI(c =>
   {
     c.SwaggerEndpoint("./v1/swagger.json", SwaggerDocName);
+    c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
     c.RoutePrefix = "swagger";
   });
 }
@@ -164,6 +165,8 @@ app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 
