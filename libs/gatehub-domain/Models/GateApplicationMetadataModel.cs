@@ -6,20 +6,10 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 /// GATE application metadata model
 /// </summary>
 [ExcludeFromCodeCoverage]
-public class GateApplicationMetadataModel : BaseModel
+public class GateApplicationMetadataModel : GateApplicationMetadataRegistrationModel
 {
   /// <summary>
-  /// Name of the GATE application, must be unique across all application
+  /// The ID of the GATE Application
   /// </summary>
-  public string Name { get; set; }
-
-  /// <summary>
-  /// GATE application description
-  /// </summary>
-  public string Description { get; set; }
-
-  /// <summary>
-  /// GATE application icon for the web app menu
-  /// </summary>
-  public string Icon { get; set; }
+  public int Id { get; set; }
 }

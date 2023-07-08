@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 namespace NineteenSevenFour.Gatehub.Domain.Interfaces;
 
 public interface IDefaultService<TModel>
-  where TModel : BaseModel
+  where TModel : class, new()
 {
   Task<TModel> AddAsync(TModel model);
 

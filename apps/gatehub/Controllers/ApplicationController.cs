@@ -57,11 +57,11 @@ public class ApplicationController : ControllerBase
   [Route("register")]
   [ProducesResponseType(typeof(GateApplicationMetadataModel), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-  public async Task<IActionResult> Register(GateApplicationMetadataModel application)
+  public async Task<IActionResult> Register(GateApplicationMetadataRegistrationModel application)
   {
     try
     {
-      return Ok(await this.applicationService.AddAsync(application));
+      return Ok(await this.applicationService.AddAsync((GateApplicationMetadataModel)application));
     }
     catch (Exception ex)
     {

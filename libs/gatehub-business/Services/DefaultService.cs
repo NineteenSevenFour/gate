@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 namespace NineteenSevenFour.Gatehub.Business.Services;
 
 public class DefaultService<TModel, TEntity> : IDefaultService<TModel>
-  where TModel : BaseModel
+  where TModel : class, new()
   where TEntity : BaseEntity
 {
   protected readonly ILogger<DefaultService<TModel, TEntity>> logger;
