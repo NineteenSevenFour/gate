@@ -25,11 +25,14 @@ npx nx g @nx-dotnet/core:library gatehub-business-sqllite --pathScheme dotnet --
 
 ## EFCore
 
-!!! IMPORTANT !!! net7.0.302 is broken
+> Due to issues in EF Core related to intermediate path and split project, the `dotnet ef migrations` & `dotnet ef dbcontext scaffold` commands does not work !
+> Known issues with efcore & nx-dotnet
+>
+> - [nx-dotnet issue 673](https://github.com/nx-dotnet/nx-dotnet/discussions/673)
+> - [efcore issue 23691](https://github.com/dotnet/efcore/issues/23691)
+> - [efcore issue 23853](https://github.com/dotnet/efcore/issues/23853)
 
-- can't run dotnet format
-
-- There seems to be existing issues between nx-dotnet and EFCore that prevent running dotnet ef commands.
+### Migrations
 
 ```bash
 dotnet tool restore
@@ -37,6 +40,26 @@ dotnet tool restore
 dotnet ef migrations add InitialCreate -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite
 
 dotnet ef database update -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite --connection "Data Source=gatehub.db"
+```
+
+### Scaffold from database
+
+```bash
+dotnet tool restore
+
+dotnet ef dbcontext scaffold "Data Source=gatehub.db" Microsoft.EntityFrameworkCore.Sqlite -s apps/gatehub  -p gatehub-data-sqllite  -c SqliteDbContextScaffold -n NineteenSevenFour.Gatehub.Data.Sqlite -o scafold/entities --context-dir scafold/context
+```
+
+### Optimization
+
+Optimization has been made by pre-compiling the Entities using the command below. This is used by the DbContextFactory.
+
+Note: Make sure to replace the <PWD> by the proper password
+
+```bash
+dotnet tool restore
+
+dotnet ef dbcontext optimize -p gatehub-data-sqllite -o Entity/Compiled -n NineteenSevenFour.Gatehub.Data.Sqlite.Entity.Compiled -c SqliteDbContext
 ```
 
 ## Powered by
