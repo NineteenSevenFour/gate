@@ -27,7 +27,7 @@
   },
   "private": true,
   "scripts": {
-    "prepare": "git config core.ignorecase false && husky install",
+    "prepare": "git config core.ignorecase false && husky install && git flow init --file ./gitflow.config",
     "lint": "nx run-many --target=lint --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
     "lint:fix": "nx run-many --target=lint --fix --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
     "format": "nx run-many --target=format",
@@ -44,8 +44,13 @@
     "reset": "npm cache verify && dotnet nuget locals all --clear && npx nx reset",
     "setup": "npm ci && dotnet restore && dotnet tool restore",
     "postsetup": "concurrently npm:migration:*",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "migration:clean": "rimraf gatehub.db",
     "migration:run": "dotnet ef database update -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite --connection \"Data Source=gatehub.db\""
+  },
+  "resolutions": {
+    "rxjs": "7.8.0"
   },
   "dependencies": {
     "@angular/animations": "~15.2.0",
@@ -84,6 +89,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
+    "all-contributors-cli": "^6.26.1",
     "concurrently": "^8.0.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
