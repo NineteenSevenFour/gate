@@ -27,7 +27,8 @@
   },
   "private": true,
   "scripts": {
-    "prepare": "git config core.ignorecase false && husky install && git flow init --file ./gitflow.config",
+    "prepare": "git config core.ignorecase false && husky install",
+    "prepare:gitflow": "git flow init --file ./gitflow.config",
     "lint": "nx run-many --target=lint --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
     "lint:fix": "nx run-many --target=lint --fix --exclude NineteenSevenFour.Gatehub, NineteenSevenFour.Gatehub.Test",
     "format": "nx run-many --target=format",
