@@ -1,6 +1,9 @@
 # **NX micro-frontend setup guide**
 
-[![Github CI](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml) [![github CD](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate)
+[![Github CI](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml) [![github CD](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate) 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This guide will provides step by step to build a web micro-frontend application structured with NX workspace. There are two different templates. One for application and one for library. Your project will most likely be splitted into multiple workspaces that are managed by different team building up their own micro-frontend applications and libraries to interface with the host.
 
@@ -33,6 +36,32 @@ From time to time, you will need to update / upgrade your packages to a newer ve
 ## **Wants to learn mode ?**
 
 While this guide is tailored for our needs, this is based on many good blog articles and tools documentation listed in a [Reading list](https://github.com/NineteenSevenFour/template-portal-app/blob/main/07-REFERENCES.md).
+
+## Contributors
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/brunoduval/"><img src="https://avatars.githubusercontent.com/u/48152847?v=4?s=100" width="100px;" alt="Bruno DUVAL"/><br /><sub><b>Bruno DUVAL</b></sub></a><br /><a href="https://github.com/nineteensevenfour/gate/commits?author=datatunning" title="Code">💻</a> <a href="https://github.com/nineteensevenfour/gate/commits?author=datatunning" title="Documentation">📖</a> <a href="#projectManagement-datatunning" title="Project Management">📆</a> <a href="https://github.com/nineteensevenfour/gate/pulls?q=is%3Apr+reviewed-by%3Adatatunning" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/nineteensevenfour/gate/commits?author=datatunning" title="Tests">⚠️</a> <a href="#translation-datatunning" title="Translation">🌍</a></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td align="center" size="13px" colspan="7">
+        <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
+          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
+        </img>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Powered by
 

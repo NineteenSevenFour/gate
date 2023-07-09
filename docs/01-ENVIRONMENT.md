@@ -3,8 +3,18 @@
 The toolchain is based on entreprise battle tested tools.
 
 - Workspace management: `nx`, `nrwl`, `create-nx-workspace`
-- Source management: `git`, `husky`, `commitlint`
+- Source management: `git`, `gitflow`, `husky`, `commitlint`
 - Dev tools: `angular`, `typescript`, `primeng`, `transloco`, `ngrx`, `rxjs`
+
+## Dev tools
+
+As a developper/contributor, you are responsible to install the proper tools on your machine. those includes
+
+- GIT +  Tools: TortoiseGit, SourceTree (comes with GitFlow)
+- GitFlow
+- Any code editor of your choice. Visual Studio code is the one used by myself, but you can pickcthe one you prefers.
+- Postman: To test API in 'PRODUCTION' configuration as swagger is  only included in the 'DEV' configuration.
+- Fiddler: To `spy` on the network, browser devtools are nice but not as powerfull.
 
 ## **Node.JS**
 

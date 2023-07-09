@@ -1,0 +1,29 @@
+{
+  "projectName": "gate",
+  "projectOwner": "nineteensevenfour",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "datatunning",
+      "name": "Bruno DUVAL",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48152847?v=4",
+      "profile": "https://www.linkedin.com/in/brunoduval/",
+      "contributions": [
+        "code",
+        "doc",
+        "projectManagement",
+        "review",
+        "test",
+        "translation"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
+
