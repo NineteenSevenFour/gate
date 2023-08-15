@@ -44,8 +44,6 @@ jobs:
         # Use only 'java' to analyze code written in Java, Kotlin or both
         # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
-        node-version: [16.x]
-        dotnet-version: [7.0.x]
 
     steps:
     - name: Checkout repository
@@ -62,7 +60,7 @@ jobs:
     - name: Initialize Dotnet
       uses: ./.github/actions/prepareDotnet
       with:
-        version: ${{ matrix.dotnet-version }} # uses the matrix defined above
+        version: 16.x
         registry: https://nuget.pkg.github.com # optional / default value
         scope: nineteensevenfour # optional / default value
         gh_token: ${{ secrets.GITHUB_TOKEN }}
@@ -71,7 +69,7 @@ jobs:
     - name: Initialize Node
       uses: ./.github/actions/prepareNode
       with:
-        version: ${{ matrix.node-version }} # uses the matrix defined above
+        version: 7.0.x
         registry: https://npm.pkg.github.com # optional / default value
         scope: nineteensevenfour # optional / default value
         gh_token: ${{ secrets.GH_TOKEN }}
