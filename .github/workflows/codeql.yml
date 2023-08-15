@@ -49,6 +49,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        fetch-depth: 0
+
+    - name: Initialize Git
+      uses: ./.github/actions/prepareGit
+      with:
+        baseRef: main
 
     - name: Initialize Dotnet
       uses: ./.github/actions/prepareDotnet
@@ -83,8 +91,9 @@ jobs:
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
+    #- name: Autobuild
       #uses: github/codeql-action/autobuild@v2
+    - name: Build
       uses: ./.github/actions/build
 
     # ℹ️ Command-line programs to run using the OS shell.
