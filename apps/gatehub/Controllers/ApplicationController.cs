@@ -61,7 +61,7 @@ public class ApplicationController : ControllerBase
   {
     try
     {
-      return Ok(await this.applicationService.AddAsync((GateApplicationMetadataModel)application));
+      return Ok(await this.applicationService.AddAsync( new GateApplicationMetadataModel(application)));
     }
     catch (Exception ex)
     {
