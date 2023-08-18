@@ -45,7 +45,6 @@ nx g @nrwl/angular:host host --prefix=portal-host --dynamic --backendProject=htt
 ```
 
 > INFO: `--dynamic` allows for runtime micro-frontend rather than static.
-
 > TIP: Add `--dry-run` to validate the options will generate what´d you expect.
 
 ## **Scaffold a Remote application**

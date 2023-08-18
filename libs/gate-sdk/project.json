@@ -1,5 +1,5 @@
 {
-  "name": "gate-sdk",
+  "name": "NineteenSevenFour.Gate.Sdk",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/gate-sdk/src",
   "prefix": "gdk",
