@@ -1,6 +1,6 @@
 {
-  "name": "@nineteensevenfour/gdk",
-  "version": "0.0.1",
+  "name": "@nineteensevenfour/gate-sdk",
+  "version": "0.0.0",
   "description": "This is the SDK to build GATE applications.",
   "author": {
     "email": "bruno.duval@datatunning.com",

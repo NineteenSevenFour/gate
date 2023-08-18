@@ -1,5 +1,5 @@
 {
-  "name": "NineteenSevenFour.Gatehub.EFCcore.Test",
+  "name": "NineteenSevenFour.Gatehub.Business.Test",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/gatehub-business-test",

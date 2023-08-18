@@ -83,10 +83,11 @@ public class ApplicationControllerTests
   public async Task Register_ShouldReturn_Status200OK_OnSucceess()
   {
     // Arrange
-    GateApplicationMetadataModel payload = new(){
-        Name = "AppOne",
-        Description = "App one",
-        Icon = "Shield"
+    GateApplicationMetadataModel payload = new()
+    {
+      Name = "AppOne",
+      Description = "App one",
+      Icon = "Shield"
     };
     GateApplicationMetadataModel result = new()
     {
@@ -96,7 +97,7 @@ public class ApplicationControllerTests
       Icon = "Shield"
     };
     var loggerMoq = new Mock<ILogger<ApplicationController>>();
-    var serviceMoq = new Mock<IDefaultService<GateApplicationMetadataModel>> ();
+    var serviceMoq = new Mock<IDefaultService<GateApplicationMetadataModel>>();
 
     serviceMoq.Setup(service => service.AddAsync(It.IsAny<GateApplicationMetadataModel>()))
                .ReturnsAsync(result);
