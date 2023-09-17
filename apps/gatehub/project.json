@@ -1,6 +1,6 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "NineteenSevenFour.Gatehub",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
     "build": {
       "executor": "@nx-dotnet/core:build",
@@ -37,13 +37,26 @@
     },
     "swagger": {
       "executor": "@nx-dotnet/core:update-swagger",
-      "outputs": ["options.output"],
+      "outputs": ["{workspaceRoot}/options.output"],
       "options": {
         "output": "libs/gatehub-swagger/swagger.json"
       },
       "dependsOn": ["build"]
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": true,
+        "changelog": true,
+        "npm": false,
+        "tagFormat": "NineteenSevenFour.Gatehub-v${VERSION}"
+      }
     }
   },
   "tags": ["scope:api", "type:app"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.Business", "NineteenSevenFour.Gatehub.Data.Sqlite"]
+  "implicitDependencies": [
+    "NineteenSevenFour.Gatehub.Domain",
+    "NineteenSevenFour.Gatehub.Business",
+    "NineteenSevenFour.Gatehub.Data.Sqlite"
+  ]
 }
