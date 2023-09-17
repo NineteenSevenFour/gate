@@ -33,6 +33,5 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": ["scope:api", "type:test"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Business"]
+  "tags": ["scope:api", "type:test"]
 }

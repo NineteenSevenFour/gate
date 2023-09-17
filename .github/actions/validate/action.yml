@@ -9,7 +9,7 @@ inputs:
   coverage_files:
     description: Coverage file list
     required: false
-    deffault: ''
+    default: ''
 
   coverage_directory:
     description: Coverage directory to search

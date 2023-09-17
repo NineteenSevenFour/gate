@@ -25,6 +25,5 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": ["scope:api", "type:lib"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Domain", "NineteenSevenFour.Gatehub.Business"]
+  "tags": ["scope:api", "type:lib"]
 }

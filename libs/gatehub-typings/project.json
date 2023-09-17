@@ -1,21 +1,29 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "NineteenSevenFour.Gatehub.Typings",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/gatehub-typings",
         "main": "libs/gatehub-typings/src/index.ts",
         "tsConfig": "libs/gatehub-typings/tsconfig.lib.json",
-        "assets": ["libs/gatehub-typings/*.md"]
+        "assets": [
+          "libs/gatehub-typings/*.md"
+        ]
       },
-      "dependsOn": ["^codegen"]
+      "dependsOn": [
+        "^codegen"
+      ]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "libs/gatehub-typings/**/*.ts"
@@ -24,7 +32,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/testresults/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/testresults/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/gatehub-typings/jest.config.ts",
         "passWithNoTests": true
@@ -35,8 +45,19 @@
           "codeCoverage": true
         }
       }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": false,
+        "changelog": true,
+        "npm": true,
+        "tagFormat": "NineteenSevenFour.Gatehub.Typings-v${VERSION}"
+      }
     }
   },
-  "tags": ["scope:mfe", "type:lib"],
-  "implicitDependencies": ["NineteenSevenFour.Gatehub.Swagger"]
+  "tags": [
+    "scope:mfe",
+    "type:lib"
+  ]
 }
