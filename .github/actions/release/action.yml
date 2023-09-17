@@ -2,7 +2,7 @@ name: Setup Node.JS
 description: Release packages
 
 inputs:
-  npmregistry:
+  npmRegistry:
     description: NPM Registry
     required: false
     default: https://npm.pkg.github.com ## https://registry.npmjs.org
