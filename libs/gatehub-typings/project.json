@@ -1,6 +1,6 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "NineteenSevenFour.Gatehub.Typings",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -17,9 +17,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/gatehub-typings/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/gatehub-typings/**/*.ts"]
       }
     },
     "test": {
@@ -34,6 +32,15 @@
           "ci": true,
           "codeCoverage": true
         }
+      }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": false,
+        "changelog": true,
+        "npm": true,
+        "tagFormat": "NineteenSevenFour.Gatehub.Typings-v${VERSION}"
       }
     }
   },

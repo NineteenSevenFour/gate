@@ -1,0 +1,9 @@
+{
+  "repositoryUrl": "https://github.com/NineteenSevenFour/gate",
+  "branches": [
+    "main",
+    "next",
+    "beta",
+    "alpha"
+  ]
+}
