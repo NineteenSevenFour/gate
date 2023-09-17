@@ -37,15 +37,11 @@
     },
     "swagger": {
       "executor": "@nx-dotnet/core:update-swagger",
-      "outputs": [
-        "options.output"
-      ],
+      "outputs": ["{workspaceRoot}/options.output"],
       "options": {
         "output": "libs/gatehub-swagger/swagger.json"
       },
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["build"]
     },
     "semantic-release": {
       "executor": "@theunderscorer/nx-semantic-release:semantic-release",
@@ -57,8 +53,10 @@
       }
     }
   },
-  "tags": [
-    "scope:api",
-    "type:app"
+  "tags": ["scope:api", "type:app"],
+  "implicitDependencies": [
+    "NineteenSevenFour.Gatehub.Domain",
+    "NineteenSevenFour.Gatehub.Business",
+    "NineteenSevenFour.Gatehub.Data.Sqlite"
   ]
 }

@@ -33,5 +33,6 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": ["scope:api", "type:test"]
+  "tags": ["scope:api", "type:test"],
+  "implicitDependencies": ["NineteenSevenFour.Gatehub.Data.Sqlite"]
 }

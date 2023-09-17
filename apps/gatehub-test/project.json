@@ -1,6 +1,6 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "NineteenSevenFour.Gatehub.Test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/gatehub-test",
   "targets": {
@@ -32,5 +32,6 @@
       "executor": "@nx-dotnet/core:format"
     }
   },
-  "tags": ["scope:api",  "type:test"]
+  "tags": ["scope:api", "type:test"],
+  "implicitDependencies": ["NineteenSevenFour.Gatehub"]
 }
