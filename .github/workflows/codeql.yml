@@ -113,5 +113,4 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
-        ref: ${{ github.head_ref || github.ref_name }}
         sha: ${{ github.sha }}
