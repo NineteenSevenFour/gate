@@ -1,6 +1,6 @@
 # **NX micro-frontend setup guide**
 
-[![Github CI](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml) [![github CD](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate) 
+[![Github CI](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/ci.yaml) [![github CD](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/cd.yaml) [![codecov](https://codecov.io/gh/NineteenSevenFour/gate/branch/main/graph/badge.svg?token=cXAu8BCw8d)](https://codecov.io/gh/NineteenSevenFour/gate) [![CodeQL](https://github.com/NineteenSevenFour/gate/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/NineteenSevenFour/gate/actions/workflows/github-code-scanning/codeql)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
