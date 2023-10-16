@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>NineteenSevenFour.Gatehub.Domain</RootNamespace>
     <AssemblyName>NineteenSevenFour.Gatehub.Domain</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

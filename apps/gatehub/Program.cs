@@ -23,6 +23,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 
 using Unchase.Swashbuckle.AspNetCore.Extensions.Extensions;
+using System.Collections.Immutable;
 
 var CorsPolicyName = "Gatehub security policy";
 var SwaggerDocName = "Gatehub api documentation";
@@ -112,10 +113,13 @@ builder.Services.AddSwaggerGen(c =>
   // see https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters#installation
   c.ExampleFilters();
   c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+  c.OperationFilter<AddResponseHeadersFilter>();
 
-  // Add documentation from XmlDoc using System.Reflection;
-  var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-  c.IncludeXmlCommentsWithRemarks(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+  // Add documentation
+  Directory
+    .GetFiles(AppContext.BaseDirectory, "*.XML", SearchOption.AllDirectories)
+    .ToImmutableList()
+    .ForEach(f => c.IncludeXmlCommentsWithRemarks(filePath: f));
 });
 
 // Add FV, see https://github.com/micro-elements/MicroElements.Swashbuckle.FluentValidation
@@ -133,16 +137,19 @@ WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.MapSwagger();
-app.UseSwagger();
+app.UseSwagger(c =>
+{
+  c.RouteTemplate = "doc/{documentname}/swagger.json";
+});
 
 if (environment.IsDevelopment())
 {
   app.UseExceptionHandler("/error-development");
   app.UseSwaggerUI(c =>
   {
-    c.SwaggerEndpoint("./v1/swagger.json", SwaggerDocName);
+    c.SwaggerEndpoint("/doc/v1/swagger.json", SwaggerDocName);
     c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
-    c.RoutePrefix = "swagger";
+    c.RoutePrefix = "doc";
   });
 }
 else
@@ -151,8 +158,8 @@ else
   app.UseReDoc(c =>
   {
     c.DocumentTitle = SwaggerDocName;
-    c.SpecUrl = "/swagger/v1/swagger.json";
-    c.RoutePrefix = "redoc";
+    c.SpecUrl = "/doc/v1/swagger.json";
+    c.RoutePrefix = "doc";
   });
 }
 
@@ -169,6 +176,7 @@ app.UseAuthorization();
 app.UseStaticFiles();
 
 app.MapControllers();
+//app.MapHealthChecks("/health");
 
 app.Run();
 
@@ -176,7 +184,7 @@ app.Run();
 /// Gatehub api entry point
 /// </summary>
 /// <remarks>
-///Trick the coverage reporting tool to exclude this file
+/// Trick the coverage reporting tool to exclude this file
 /// </remarks>
-[ExcludeFromCodeCoverage]
+[ExcludeFromCodeCoverage(Justification = "API starter program, nothing to test here.")]
 public partial class Program { }

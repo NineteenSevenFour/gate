@@ -5,11 +5,11 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 /// <summary>
 /// GATE application metadata registration model
 /// </summary>
-[ExcludeFromCodeCoverage]
+[ExcludeFromCodeCoverage(Justification = "Basic model")]
 public class GateApplicationMetadataRegistrationModel
 {
   /// <summary>
-  /// Name of the GATE application, must be unique across all application
+  /// GATE application unique Name (across all application)
   /// </summary>
   public string Name { get; set; }
 
