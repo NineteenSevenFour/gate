@@ -5,7 +5,7 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 /// <summary>
 /// GATE application metadata registration model
 /// </summary>
-[ExcludeFromCodeCoverage]
+[ExcludeFromCodeCoverage(Justification = "Basic model")]
 public class GateApplicationMetadataRegistrationModel
 {
   /// <summary>

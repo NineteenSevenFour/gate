@@ -10,9 +10,6 @@ namespace NineteenSevenFour.Gatehub.Controllers;
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-[Produces("application/json")]
-[ProducesResponseType(StatusCodes.Status200OK)]
-[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 public class ApplicationController : ControllerBase
 {
   private readonly ILogger<ApplicationController> logger;
@@ -33,8 +30,11 @@ public class ApplicationController : ControllerBase
   /// Endpoint to retrieve the registered GATE applications.
   /// </summary>
   /// <returns>A list of GATE applictions</returns>
+  /// <response code="200">Application list retrieved</response>
+  /// <response code="500">Unhandled error occured internaly.</response>
   [HttpGet()]
   [Route("List")]
+  [Produces("application/json")]
   [ProducesResponseType(typeof(GateApplicationMetadataModel[]), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
   public IActionResult List()
@@ -53,11 +53,15 @@ public class ApplicationController : ControllerBase
   /// <summary>
   /// Endpoint to register a GATE application
   /// </summary>
+  /// <response code="200">Application registered</response>
+  /// <response code="500">Unhandled error occured internaly.</response>
   [HttpPost()]
-  [Route("register")]
+  [Route("Register")]
+  [Consumes("application/json")]
+  [Produces("application/json")]
   [ProducesResponseType(typeof(GateApplicationMetadataModel), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-  public async Task<IActionResult> Register(GateApplicationMetadataRegistrationModel application)
+  public async Task<IActionResult> Register([FromBody(EmptyBodyBehavior = Microsoft.AspNetCore.Mvc.ModelBinding.EmptyBodyBehavior.Disallow)]GateApplicationMetadataRegistrationModel application)
   {
     try
     {
@@ -73,8 +77,13 @@ public class ApplicationController : ControllerBase
   /// <summary>
   /// Endpoint to unregister a GATE application
   /// </summary>
+  /// <param name="id" example="1">The unique identifier of the GATE application to unregister</param>
+  /// <response code="200">Application unregistered</response>
+  /// <response code="500">Unhandled error occured internaly.</response>
   [HttpPost()]
-  [Route("{id}/unregister")]
+  [Route("{id}/Unregister")]
+  [Consumes("application/json")]
+  [Produces("application/json")]
   [ProducesResponseType(StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
   public async Task<IActionResult> Unregister(int id)
