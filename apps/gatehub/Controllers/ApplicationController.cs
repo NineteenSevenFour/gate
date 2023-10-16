@@ -61,7 +61,7 @@ public class ApplicationController : ControllerBase
   [Produces("application/json")]
   [ProducesResponseType(typeof(GateApplicationMetadataModel), StatusCodes.Status200OK)]
   [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-  public async Task<IActionResult> Register([FromBody(EmptyBodyBehavior = Microsoft.AspNetCore.Mvc.ModelBinding.EmptyBodyBehavior.Disallow)]GateApplicationMetadataRegistrationModel application)
+  public async Task<IActionResult> Register([FromBody(EmptyBodyBehavior = Microsoft.AspNetCore.Mvc.ModelBinding.EmptyBodyBehavior.Disallow)] GateApplicationMetadataRegistrationModel application)
   {
     try
     {

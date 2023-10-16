@@ -9,7 +9,7 @@ namespace NineteenSevenFour.Gatehub.Controllers.NewFolder
   /// <summary>
   /// An example of GATE application registration request payload.
   /// </summary>
-  [ExcludeFromCodeCoverage( Justification = "Swagger example model")]
+  [ExcludeFromCodeCoverage(Justification = "Swagger example model")]
   public class GateApplicationMetadataRegistrationModelExample : IExamplesProvider<GateApplicationMetadataRegistrationModel>
   {
     GateApplicationMetadataRegistrationModel IExamplesProvider<GateApplicationMetadataRegistrationModel>.GetExamples()
