@@ -137,16 +137,19 @@ WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.MapSwagger();
-app.UseSwagger();
+app.UseSwagger(c =>
+{
+  c.RouteTemplate = "doc/{documentname}/swagger.json";
+});
 
 if (environment.IsDevelopment())
 {
   app.UseExceptionHandler("/error-development");
   app.UseSwaggerUI(c =>
   {
-    c.SwaggerEndpoint("v1/swagger.json", SwaggerDocName);
+    c.SwaggerEndpoint("/doc/v1/swagger.json", SwaggerDocName);
     c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
-    c.RoutePrefix = "swagger";
+    c.RoutePrefix = "doc";
   });
 }
 else
@@ -155,8 +158,8 @@ else
   app.UseReDoc(c =>
   {
     c.DocumentTitle = SwaggerDocName;
-    c.SpecUrl = "/swagger/v1/swagger.json";
-    c.RoutePrefix = "redoc";
+    c.SpecUrl = "/doc/v1/swagger.json";
+    c.RoutePrefix = "doc";
   });
 }
 
@@ -173,6 +176,7 @@ app.UseAuthorization();
 app.UseStaticFiles();
 
 app.MapControllers();
+//app.MapHealthChecks("/health");
 
 app.Run();
 
