@@ -9,7 +9,7 @@ namespace NineteenSevenFour.Gatehub.Domain.Models;
 public class GateApplicationMetadataRegistrationModel
 {
   /// <summary>
-  /// Name of the GATE application, must be unique across all application
+  /// GATE application unique Name (across all application)
   /// </summary>
   public string Name { get; set; }
 
