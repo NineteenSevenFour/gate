@@ -63,7 +63,8 @@ builder.Services.AddScoped<IDefaultService<GateApplicationMetadataModel>, Defaul
 builder.Services.AddScoped(typeof(IDefaultRepository<>), typeof(DefaultRepository<>));
 
 //TODO: Review those services
-//builder.Services.AddHealthChecks();
+builder.Services.AddHealthChecks()
+                .AddDbContextCheck<SqliteDbContext>(name: "Application Database");
 
 //builder.Services.AddAntiforgery((options) =>
 //{
@@ -98,6 +99,7 @@ builder.Services
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -176,7 +178,8 @@ app.UseAuthorization();
 app.UseStaticFiles();
 
 app.MapControllers();
-//app.MapHealthChecks("/health");
+
+app.MapHealthChecks("healthchecks");
 
 app.Run();
 
