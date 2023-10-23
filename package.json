@@ -76,7 +76,7 @@
     "@angular-eslint/template-parser": "~16.2.0",
     "@angular/cli": "~16.2.6",
     "@angular/compiler-cli": "16.2.1",
-    "@angular/language-service": "16.2.1",
+    "@angular/language-service": "16.2.10",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.4.4",
     "@nrwl/angular": "16.9.0",
