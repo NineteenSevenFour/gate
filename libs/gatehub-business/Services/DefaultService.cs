@@ -5,19 +5,40 @@ using Microsoft.Extensions.Logging;
 
 using NineteenSevenFour.Gatehub.Domain.Entities;
 using NineteenSevenFour.Gatehub.Domain.Interfaces;
-using NineteenSevenFour.Gatehub.Domain.Models;
 using System.Linq.Expressions;
 
 namespace NineteenSevenFour.Gatehub.Business.Services;
 
+/// <summary>
+/// Default service with CRUD implementation
+/// </summary>
+/// <typeparam name="TModel">The model storing data used by client application</typeparam>
+/// <typeparam name="TEntity">The entity used by the backend DB</typeparam>
 public class DefaultService<TModel, TEntity> : IDefaultService<TModel>
   where TModel : class, new()
   where TEntity : BaseEntity
 {
+  /// <summary>
+  /// The logger
+  /// </summary>
   protected readonly ILogger<DefaultService<TModel, TEntity>> logger;
+
+  /// <summary>
+  /// The automapper instance
+  /// </summary>
   protected readonly IMapper mapper;
+
+  /// <summary>
+  /// The DB repository implementation
+  /// </summary>
   protected readonly IDefaultRepository<TEntity> repository;
 
+  /// <summary>
+  /// Default cTor
+  /// </summary>
+  /// <param name="loggerFactory">Logger factory</param>
+  /// <param name="mapper">AutoMapper instance</param>
+  /// <param name="repository">Repository instance</param>
   public DefaultService(ILoggerFactory loggerFactory, IMapper mapper, IDefaultRepository<TEntity> repository)
   {
     this.logger = loggerFactory.CreateLogger<DefaultService<TModel, TEntity>>();

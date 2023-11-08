@@ -6,8 +6,14 @@ using NineteenSevenFour.Gatehub.Domain.Models;
 
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context.MappingProfile
 {
+  /// <summary>
+  /// Mapping profile for <see cref="GateApplicationMetadataEntity"/> and <seealso cref="GateApplicationMetadataModel"/>
+  /// </summary>
   public partial class GateApplicationMetadataMappingProfile : Profile
   {
+    /// <summary>
+    /// Default cTor of mapping profile
+    /// </summary>
     public GateApplicationMetadataMappingProfile()
     {
       CreateMap<GateApplicationMetadataEntity, GateApplicationMetadataModel>()

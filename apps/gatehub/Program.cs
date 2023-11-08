@@ -37,9 +37,12 @@ if (!Enum.TryParse(configuration["Logging:LogLevel:Default"], out LogLevel logLe
   logLevel = LogLevel.Information;
 }
 var loggerFactory = LoggerFactory.Create(b => b.AddConsole().AddFilter("", logLevel));
+var logger = loggerFactory.CreateLogger("Gatehub");
+logger.LogDebug("Initializing...");
 
-builder.Services.AddSqliteDbFactory(configuration);
+builder.Services.AddSqliteDbFactory(configuration, logger);
 
+logger.LogDebug("Builder: Add auto-mapper");
 builder.Services.AddAutoMapper(
     cfg =>
     {
@@ -57,15 +60,19 @@ builder.Services.AddAutoMapper(
 // Add services to the container. Having both model and entity as generic types allow
 // to use AutoMapper out-of-the-box with generic one-to-one mapping.
 // More advanced mapping will requires custom Service, Repository and eventually UnitOfWork
+
+logger.LogDebug("Builder: Add services");
 builder.Services.AddScoped<IDefaultService<GateApplicationMetadataModel>, DefaultService<GateApplicationMetadataModel, GateApplicationMetadataEntity>>();
 
 // Add repository to the container.
 builder.Services.AddScoped(typeof(IDefaultRepository<>), typeof(DefaultRepository<>));
 
-//TODO: Review those services
+// Add HealthChecks to the container
+logger.LogDebug("Builder: Add health/DBContext checks");
 builder.Services.AddHealthChecks()
                 .AddDbContextCheck<SqliteDbContext>(name: "Application Database");
 
+//TODO: Review those services
 //builder.Services.AddAntiforgery((options) =>
 //{
 //});
@@ -76,6 +83,8 @@ builder.Services.AddHealthChecks()
 //  options.MaxAge = new TimeSpan(1,0,0);
 //});
 
+
+logger.LogDebug("Builder: Add cors");
 builder.Services.AddCors(options =>
 {
   options.AddPolicy(CorsPolicyName, builder =>
@@ -87,6 +96,8 @@ builder.Services.AddCors(options =>
   });
 });
 
+
+logger.LogDebug("Builder: Add controllers");
 builder.Services
   .AddControllers()
   .AddJsonOptions(o =>
@@ -98,11 +109,13 @@ builder.Services
   });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+logger.LogDebug("Builder: Add endpoints api explorer");
 builder.Services.AddEndpointsApiExplorer();
 
-
+logger.LogDebug("Builder: Add swaggergen");
 builder.Services.AddSwaggerGen(c =>
 {
+  logger.LogDebug("swagger: Add swaggerdoc");
   c.SwaggerDoc(
     "v1",
     new OpenApiInfo { Title = SwaggerDocName, Version = "v1" }
@@ -113,11 +126,13 @@ builder.Services.AddSwaggerGen(c =>
   c.UseAllOfToExtendReferenceSchemas();
 
   // see https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters#installation
+  logger.LogDebug("swagger: Add api filters");
   c.ExampleFilters();
   c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
   c.OperationFilter<AddResponseHeadersFilter>();
 
   // Add documentation
+  logger.LogDebug("swagger: Add xml documentation");
   Directory
     .GetFiles(AppContext.BaseDirectory, "*.XML", SearchOption.AllDirectories)
     .ToImmutableList()
@@ -125,6 +140,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Add FV, see https://github.com/micro-elements/MicroElements.Swashbuckle.FluentValidation
+logger.LogDebug("Builder: Add fluent validation");
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 // Add FV validators
@@ -133,12 +149,18 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddFluentValidationRulesToSwagger();
 
 // see https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters#installation
+logger.LogDebug("Builder: Add swagger examples");
 builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
+logger.LogDebug("Builder: get application");
 WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//logger.LogDebug("app: set base path");
+//app.UsePathBase("/api");
+logger.LogDebug("app: map swagger");
 app.MapSwagger();
+logger.LogDebug("app: use swagger");
 app.UseSwagger(c =>
 {
   c.RouteTemplate = "doc/{documentname}/swagger.json";
@@ -146,7 +168,10 @@ app.UseSwagger(c =>
 
 if (environment.IsDevelopment())
 {
+  logger.LogDebug("app: set dev exception endpoint");
   app.UseExceptionHandler("/error-development");
+
+  logger.LogDebug("app: use swagger UI");
   app.UseSwaggerUI(c =>
   {
     c.SwaggerEndpoint("/doc/v1/swagger.json", SwaggerDocName);
@@ -156,7 +181,9 @@ if (environment.IsDevelopment())
 }
 else
 {
+  logger.LogDebug("app: set prod exception endpoint");
   app.UseExceptionHandler("/error");
+  logger.LogDebug("app: use redoc");
   app.UseReDoc(c =>
   {
     c.DocumentTitle = SwaggerDocName;
@@ -165,22 +192,31 @@ else
   });
 }
 
+logger.LogDebug("app: set https redirection");
 app.UseHttpsRedirection();
 
+logger.LogDebug("app: use cors");
 app.UseCors(CorsPolicyName);
 
+logger.LogDebug("app: use authentication");
 app.UseAuthentication();
 
+logger.LogDebug("app: use routing");
 app.UseRouting();
 
+logger.LogDebug("app: use authorization");
 app.UseAuthorization();
 
+logger.LogDebug("app: use static files");
 app.UseStaticFiles();
 
+logger.LogDebug("app: map controllers");
 app.MapControllers();
 
+logger.LogDebug("app: map health checks");
 app.MapHealthChecks("healthchecks");
 
+logger.LogDebug("Running");
 app.Run();
 
 /// <summary>
