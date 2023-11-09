@@ -9,11 +9,27 @@ using System.Linq.Expressions;
 
 namespace NineteenSevenFour.Gatehub.Data.Sqlite.Repositories
 {
+  /// <summary>
+  /// Implementation of <see cref="IDefaultRepository{TEntity}"/>
+  /// </summary>
+  /// <typeparam name="TEntity">The entity type used by the repository</typeparam>
   public class DefaultRepository<TEntity> : IDefaultRepository<TEntity> where TEntity : BaseEntity
   {
+    /// <summary>
+    /// The DBContext instance
+    /// </summary>
     protected readonly SqliteDbContext context;
+
+    /// <summary>
+    /// The logger instance
+    /// </summary>
     protected readonly ILogger<DefaultRepository<TEntity>> logger;
 
+    /// <summary>
+    /// Default cTor
+    /// </summary>
+    /// <param name="loggerFactory">Logger factory instance</param>
+    /// <param name="context">DBContext instance</param>
     public DefaultRepository(ILoggerFactory loggerFactory, SqliteDbContext context)
     {
       this.context = context;

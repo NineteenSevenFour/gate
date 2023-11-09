@@ -13,6 +13,10 @@ namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context.Configurations
   [ExcludeFromCodeCoverage]
   public sealed class GateApplicationMetadataConfiguration : IEntityTypeConfiguration<GateApplicationMetadataEntity>
   {
+    /// <summary>
+    /// Configure the <see cref="GateApplicationMetadataEntity"/>
+    /// </summary>
+    /// <param name="entityBuilder"></param>
     public void Configure(EntityTypeBuilder<GateApplicationMetadataEntity> entityBuilder)
     {
       entityBuilder
