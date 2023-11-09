@@ -23,7 +23,7 @@ namespace NineteenSevenFour.Gatehub.Data.Sqlite.Context
     /// <returns></returns>
     public static IServiceCollection AddSqliteDbFactory(this IServiceCollection services, ConfigurationManager configuration, ILogger logger)
     {
-      var filename = configuration["Database:Sqlite:Filename"] ?? throw new ApplicationException("Missing DB full path/file name configuration");
+      var filename = configuration["Database:Sqlite:Filename"] ?? "gatehub.db";
 
       if (!bool.TryParse(configuration["EnableDetailedErrors"], out bool enableDetailedErrors))
       {

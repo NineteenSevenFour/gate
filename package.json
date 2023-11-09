@@ -38,6 +38,8 @@
     "checks": "npm run lint:fix && npm run format:fix && npm run test",
     "prebuild": "npm run pretest && rimraf -g dist **/obj",
     "build": "nx run-many --target=build --verbose",
+    "prebuild:prod": "npm run pretest && rimraf -g dist **/obj",
+    "build:prod": "nx run-many --target=build --configuration=production --verbose",
     "release": "nx run-many --target=semantic-release --parallel=false --verbose --ci=false --dryRun",
     "serve": "concurrently npm:serve:*",
     "serve:api": "nx run NineteenSevenFour.Gatehub:serve",
