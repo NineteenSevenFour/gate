@@ -87,7 +87,7 @@
     "@nrwl/angular": "16.9.0",
     "@nrwl/eslint-plugin-nx": "16.9.0",
     "@nrwl/jest": "16.9.0",
-    "@nrwl/js": "16.9.0",
+    "@nrwl/js": "17.2.5",
     "@nrwl/linter": "16.9.0",
     "@nrwl/workspace": "16.9.0",
     "@nx-dotnet/core": "^1.21.1",
