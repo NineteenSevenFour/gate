@@ -11,8 +11,8 @@
       "outputs": ["{workspaceRoot}/libs/gatehub-typings"],
       "options": {
         "commands": [
-          "rm -Rf libs/gatehub-typings/src/**/",
-          "rm -Rf libs/gatehub-typings/src/index.ts",
+          "npx rimraf -Rf libs/gatehub-typings/src/**/",
+          "npx rimraf -Rf libs/gatehub-typings/src/index.ts",
           "npx openapi-typescript-codegen --exportSchemas true --indent 2 -c fetch -i libs/gatehub-swagger/swagger.json -o libs/gatehub-typings/src"
         ],
         "parallel": false
