@@ -73,9 +73,9 @@
     "zone.js": "~0.13.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "16.2.5",
-    "@angular-devkit/core": "16.2.0",
-    "@angular-devkit/schematics": "16.2.0",
+    "@angular-devkit/build-angular": "16.2.16",
+    "@angular-devkit/core": "16.2.16",
+    "@angular-devkit/schematics": "16.2.16",
     "@angular-eslint/eslint-plugin": "~16.2.0",
     "@angular-eslint/eslint-plugin-template": "~15.0.0",
     "@angular-eslint/template-parser": "~16.2.0",
@@ -91,7 +91,7 @@
     "@nrwl/linter": "16.9.0",
     "@nrwl/workspace": "16.9.0",
     "@nx-dotnet/core": "^1.21.1",
-    "@schematics/angular": "16.2.0",
+    "@schematics/angular": "16.2.16",
     "@theunderscorer/nx-semantic-release": "^2.5.0",
     "@types/jest": "^29.4.0",
     "@types/node": "16.11.7",
