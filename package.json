@@ -108,7 +108,7 @@
     "ng-packagr": "16.2.0",
     "nx": "16.9.0",
     "openapi-typescript-codegen": "^0.25.0",
-    "postcss": "^8.4.31",
+    "postcss": "^8.5.3",
     "postcss-import": "~14.1.0",
     "postcss-preset-env": "~7.5.0",
     "postcss-url": "~10.1.3",
