@@ -80,7 +80,7 @@
     "@angular-eslint/eslint-plugin-template": "~15.0.0",
     "@angular-eslint/template-parser": "~16.2.0",
     "@angular/cli": "~16.2.6",
-    "@angular/compiler-cli": "16.2.1",
+    "@angular/compiler-cli": "19.2.6",
     "@angular/language-service": "16.2.12",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.4.4",
