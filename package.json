@@ -57,7 +57,7 @@
     "migration:bundle:lnx64": "dotnet ef migrations bundle --no-build -r linux-x64 -c SqliteDbContext -s apps/gatehub -p libs/gatehub-data-sqlite -o C:\\storage\\data\\gate\\db\\gatehub.bundle.lnx64.exe"
   },
   "resolutions": {
-    "rxjs": "7.8.0"
+    "rxjs": "7.8.2"
   },
   "dependencies": {
     "@angular/animations": "16.2.1",
