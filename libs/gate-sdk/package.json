@@ -30,7 +30,7 @@
   "allow-same-version": true,
   "sideEffects": false,
   "peerDependencies": {
-    "@angular/common": "^15.2.0",
+    "@angular/common": "^19.2.16",
     "@angular/core": "^15.2.0"
   },
   "dependencies": {
